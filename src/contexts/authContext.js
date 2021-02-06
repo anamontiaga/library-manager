@@ -7,14 +7,13 @@ export const AuthContextProvider = ({ children }) => {
 
   const login = useCallback(() => setIsAuthenticated(true), [])
 
-  const value = useMemo(() => ({
-    login,
-    isAuthenticated
-  }), [isAuthenticated, login])
-
-  return (
-    <AuthContext.Provider value={value}>
-      {children}
-    </AuthContext.Provider>
+  const value = useMemo(
+    () => ({
+      login,
+      isAuthenticated,
+    }),
+    [isAuthenticated, login]
   )
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
