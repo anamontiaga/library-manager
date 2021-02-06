@@ -1,8 +1,8 @@
 import React, { useEffect } from "react"
 import useFetch from "./utils/useFetch"
 import { BrowserRouter as Router, Switch } from "react-router-dom"
-import { routes } from './routes'
-import AppRoute from './routes/route'
+import { routes } from "./routes"
+import AppRoute from "./routes/route"
 
 function App() {
   const [state, fetchBooks] = useFetch()
@@ -36,13 +36,9 @@ function App() {
       // </div>
       <Router>
         <Switch>
-        <Switch>
+          <Switch>
             {routes.map((route, idx) => (
-              <AppRoute
-                path={route.path}
-                component={route.component}
-                key={idx}
-              />
+              <AppRoute path={route.path} component={route.component} key={idx} />
             ))}
           </Switch>
         </Switch>
