@@ -1,11 +1,7 @@
-import React from 'react';
+import React from "react"
 
 const Books = () => {
-  return (
-    <div style={{ background: 'red'}}>
-    BOOKS
-    </div>
-  );
-};
+  return <div style={{ background: "red" }}>BOOKS</div>
+}
 
-export default Books;
+export default Books
