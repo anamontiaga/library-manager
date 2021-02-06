@@ -1,14 +1,14 @@
 const headers = {
   accept: "application/json",
-  "Content-Type": "application/json"
-};
+  "Content-Type": "application/json",
+}
 
-export default async function sendRequest({ url, method, body}) {
+export default async function sendRequest({ url, method, body }) {
   const response = await fetch(url, {
     method,
     headers,
-    body
-  });
+    body,
+  })
   if (!response.ok) {
     throw new Error(`Requested failed with ${response.status}`)
   }

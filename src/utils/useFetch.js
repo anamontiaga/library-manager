@@ -1,5 +1,5 @@
-import { useCallback, useState } from 'react'
-import sendRequest from './apiClient'
+import { useCallback, useState } from "react"
+import sendRequest from "./apiClient"
 
 export default function useFetch() {
   const [fetchState, setFetchState] = useState({
@@ -7,7 +7,7 @@ export default function useFetch() {
     isSuccess: false,
     isFailed: false,
     data: null,
-    error: null
+    error: null,
   })
 
   const fetchData = useCallback(async function ({ url, method, body }) {
@@ -17,7 +17,7 @@ export default function useFetch() {
         isSuccess: false,
         isFailed: false,
         data: null,
-        error: null
+        error: null,
       })
       const result = await sendRequest({ url, method, body })
       setFetchState({
@@ -25,9 +25,9 @@ export default function useFetch() {
         isSuccess: true,
         isFailed: false,
         data: result,
-        error: null
+        error: null,
       })
-      return result;
+      return result
     } catch (error) {
       setFetchState({
         isLoading: false,

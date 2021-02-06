@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import useFetch from './utils/useFetch'
+import React, { useEffect } from "react"
+import useFetch from "./utils/useFetch"
 
 function App() {
   const [state, fetchBooks] = useFetch()
@@ -8,7 +8,7 @@ function App() {
     function () {
       fetchBooks({
         url: "https://reqres.in/api/users",
-        method: "GET"
+        method: "GET",
       })
     },
     [fetchBooks]
@@ -23,13 +23,15 @@ function App() {
   }
 
   if (state.isSuccess) {
-    return <div>
-      <ul>
-        {state.data.data.map((user) => (
-          <li key={user.id}>{user.email}</li>
-        ))}
-      </ul>
-    </div>
+    return (
+      <div>
+        <ul>
+          {state.data.data.map((user) => (
+            <li key={user.id}>{user.email}</li>
+          ))}
+        </ul>
+      </div>
+    )
   }
   return null
 }
