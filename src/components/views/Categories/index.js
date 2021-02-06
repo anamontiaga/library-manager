@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import useFetch from "../../utils/useFetch"
+import useFetch from "../../../utils/useFetch"
 
 export const Categories = () => {
   const [state, fetchCategories] = useFetch()
