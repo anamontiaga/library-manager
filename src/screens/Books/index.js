@@ -1,7 +1,5 @@
 import React from "react"
 
-const Books = () => {
+export const Books = () => {
   return <div style={{ background: "red" }}>BOOKS</div>
 }
-
-export default Books

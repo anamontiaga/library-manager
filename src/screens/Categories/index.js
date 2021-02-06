@@ -1,7 +1,6 @@
 import React from "react"
 
-const Categories = () => {
+export const Categories = () => {
   return <div style={{ background: "red" }}>CATEGORIES</div>
 }
 
-export default Categories
