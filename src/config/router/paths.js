@@ -1,4 +1,5 @@
-export const HOME = "/"
+export const HOME = '/';
+export const LOGOUT = '/logout'
 export const BOOKS = "/books"
 export const BOOK_DETAIL = "/books/:id"
 export const BOOK_DELETE = "/books/:id/delete"

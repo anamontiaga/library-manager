@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, {useEffect} from "react"
 import useFetch from "../../../utils/useFetch"
 
 export const Books = () => {
@@ -25,6 +25,7 @@ export const Books = () => {
   if (state.isSuccess) {
     const { data } = state
     const books = data
+    console.log('ESTOY EN BOOKS', books)
     return (
       <div style={{ background: "red" }}>
         {books.map((book) => (
