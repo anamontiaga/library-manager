@@ -8,7 +8,7 @@ export const Categories = () => {
     function () {
       fetchCategories({
         url: "http://18.130.120.189/api/categories",
-        method: 'GET',
+        method: "GET",
       })
     },
     [fetchCategories]
@@ -24,12 +24,15 @@ export const Categories = () => {
 
   if (state.isSuccess) {
     const { data } = state
-    console.log('CATEGORIES', data)
+    console.log("CATEGORIES", data)
     const categories = data
-    return <div style={{ background: "red" }}>
-      {categories.map(category =>
-        <h1>{category.name}</h1>)}
-    </div>
+    return (
+      <div style={{ background: "red" }}>
+        {categories.map((category) => (
+          <h1>{category.name}</h1>
+        ))}
+      </div>
+    )
   }
   return null
 }

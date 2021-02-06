@@ -8,7 +8,7 @@ export const Books = () => {
     function () {
       fetchBooks({
         url: "http://18.130.120.189/api/books",
-        method: 'GET',
+        method: "GET",
       })
     },
     [fetchBooks]
@@ -25,10 +25,13 @@ export const Books = () => {
   if (state.isSuccess) {
     const { data } = state
     const books = data
-    return <div style={{ background: "red" }}>
-      {books.map( book =>
-        <h1>{book.title}</h1>)}
-    </div>
+    return (
+      <div style={{ background: "red" }}>
+        {books.map((book) => (
+          <h1>{book.title}</h1>
+        ))}
+      </div>
+    )
   }
   return null
 }
