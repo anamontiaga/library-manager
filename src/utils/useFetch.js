@@ -1,5 +1,5 @@
-import { useCallback, useState } from "react"
-import sendRequest from "./apiClient"
+import { useCallback, useState } from 'react'
+import sendRequest from './apiClient'
 
 export default function useFetch() {
   const [fetchState, setFetchState] = useState({

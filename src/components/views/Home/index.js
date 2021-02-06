@@ -19,8 +19,8 @@ export const Home = () => {
   return (
     <div>
       <form onSubmit={handleSubmit}>
-        <input type='text' value={magicWord} onChange={handleInputChange} />
-        <button type='submit'>Iniciar sesión</button>
+        <input type="text" value={magicWord} onChange={handleInputChange} />
+        <button type="submit">Iniciar sesión</button>
       </form>
     </div>
   )

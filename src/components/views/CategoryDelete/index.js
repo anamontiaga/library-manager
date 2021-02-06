@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export const CategoryDelete = () => {
-  return <div style={{ background: "yellow" }}>CATEGORY DELETE</div>
+  return <div style={{ background: 'yellow' }}>CATEGORY DELETE</div>
 }

@@ -1,7 +1,7 @@
 const headers = {
-  accept: "application/json",
-  "Content-Type": "application/json",
-  "X-AUTH-TOKEN": "LIBRARIFY",
+  accept: 'application/json',
+  'Content-Type': 'application/json',
+  'X-AUTH-TOKEN': 'LIBRARIFY',
 }
 
 export default async function sendRequest({ url, method, body }) {

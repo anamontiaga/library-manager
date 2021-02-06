@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export const BookDelete = () => {
-  return <div style={{ background: "yellow" }}>BOOK DELETE</div>
+  return <div style={{ background: 'yellow' }}>BOOK DELETE</div>
 }

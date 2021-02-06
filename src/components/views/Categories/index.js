@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import useFetch from "../../../utils/useFetch"
+import React, { useEffect } from 'react'
+import useFetch from '../../../utils/useFetch'
 
 export const Categories = () => {
   const [state, fetchCategories] = useFetch()
@@ -7,8 +7,8 @@ export const Categories = () => {
   useEffect(
     function () {
       fetchCategories({
-        url: "http://18.130.120.189/api/categories",
-        method: "GET",
+        url: 'http://18.130.120.189/api/categories',
+        method: 'GET',
       })
     },
     [fetchCategories]
@@ -24,10 +24,10 @@ export const Categories = () => {
 
   if (state.isSuccess) {
     const { data } = state
-    console.log("CATEGORIES", data)
+    console.log('CATEGORIES', data)
     const categories = data
     return (
-      <div style={{ background: "red" }}>
+      <div style={{ background: 'red' }}>
         {categories.map((category) => (
           <h1>{category.name}</h1>
         ))}

@@ -1,5 +1,5 @@
-import React, { useEffect } from "react"
-import useFetch from "../../../utils/useFetch"
+import React, { useEffect } from 'react'
+import useFetch from '../../../utils/useFetch'
 
 export const Books = () => {
   const [state, fetchBooks] = useFetch()
@@ -7,8 +7,8 @@ export const Books = () => {
   useEffect(
     function () {
       fetchBooks({
-        url: "http://18.130.120.189/api/books",
-        method: "GET",
+        url: 'http://18.130.120.189/api/books',
+        method: 'GET',
       })
     },
     [fetchBooks]
@@ -25,9 +25,9 @@ export const Books = () => {
   if (state.isSuccess) {
     const { data } = state
     const books = data
-    console.log("ESTOY EN BOOKS", books)
+    console.log('ESTOY EN BOOKS', books)
     return (
-      <div style={{ background: "red" }}>
+      <div style={{ background: 'red' }}>
         {books.map((book) => (
           <h1>{book.title}</h1>
         ))}

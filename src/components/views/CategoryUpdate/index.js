@@ -1,5 +1,5 @@
-import React from "react"
+import React from 'react'
 
 export const CategoryUpdate = () => {
-  return <div style={{ background: "yellow" }}>CATEGORY UPDATE</div>
+  return <div style={{ background: 'yellow' }}>CATEGORY UPDATE</div>
 }
