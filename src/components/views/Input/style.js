@@ -13,7 +13,7 @@ export const HandleViewButtonEl = styled.button`
   :focus {
     outline: none;
   }
-`; 
+`
 
 export const InputContainerEl = styled.div`
   position: relative;
