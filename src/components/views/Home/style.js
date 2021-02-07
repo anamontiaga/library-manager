@@ -6,17 +6,23 @@ const containerBackground = theme('mode', {
   dark: 'grey',
 })
 
-const buttonBackground = theme('mode', {
-  light: 'green',
-  dark: 'blue',
-})
-
 export const ContainerEl = styled.div`
   background: ${containerBackground};
   height: 100vh;
   width: auto;
 `
 
-export const LoginButtonEl = styled.button`
-  background: ${buttonBackground};
-`
+export const FormEl = styled.form`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-between;
+  margin-top: 70px;
+`;
+
+export const FormContainerEl = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
