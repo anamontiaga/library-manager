@@ -1,31 +1,28 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 export const ButtonEl = styled.button`
   align-items: center;
-  background-image: linear-gradient(to right, #ff6e7f 0%, #bfe9ff  51%, #ff6e7f  100%);
+  background-image: linear-gradient(to right, #16A085 0%, #F4D03F  51%, #16A085  100%);
   background-size: 200% auto;
   border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 20px #eee;
+  border-radius: 4px;
   box-sizing: border-box;
-  color: white; 
+  color: white;
   cursor: pointer;
   display: block;
   flex-direction: row;
-  height: 56px;
+  height: ${props => props.small ? '36px' : '56px'};
   justify-content: center;
-  line-height: 1;
-  margin: 10px;
-  padding: 15px 45px;
+  padding: ${props => props.small ? '12px 20px' : '15px 45px'};
   position: relative;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   &:hover {
-    background-position: right center;
+    background-position: right center; 
     color: #fff;
     text-decoration: none;
-  }      
+  }
   &:focus {
     outline: none;
   }
@@ -42,12 +39,11 @@ export const ButtonEl = styled.button`
       opacity: 0;
     }
   }
-`;
+`
 
-export const ContainerEl = styled.div``;
+export const ContainerEl = styled.div``
 
 export const CaptionEl = styled.p`
-  font-size: 16px;  
+  font-size: ${props => props.small ? '12px' : '16px'};
   margin: 0;
-  margin-left: 10px;
-`;
+`

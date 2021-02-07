@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
 import useFetch from '../../../utils/useFetch'
-import { LOGOUT } from '../../../config/router/paths'
+import {Header} from '../Header'
 
 export const Books = () => {
   const [state, fetchBooks] = useFetch()
@@ -29,8 +28,9 @@ export const Books = () => {
     const books = data
     console.log('ESTOY EN BOOKS', books)
     return (
-      <div style={{ background: 'red' }}>
-        <Link to={LOGOUT}>Cerrar Sesión</Link>
+      <div style={{ background: 'red', height: '100vh'}}>
+        <Header isPrivate/>
+  
         {books.map((book) => (
           <h1>{book.title}</h1>
         ))}
