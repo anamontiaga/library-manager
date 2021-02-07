@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
-import MontserratRegular from '../fonts/Montserrat-Regular.woff';
-import MontserratSemiBold from '../fonts/Montserrat-SemiBold.woff';
+import { createGlobalStyle } from 'styled-components'
+import MontserratRegular from '../fonts/Montserrat-Regular.woff'
+import MontserratSemiBold from '../fonts/Montserrat-SemiBold.woff'
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {
@@ -11,4 +11,4 @@ export const GlobalStyles = createGlobalStyle`
     font-family: 'Montserrat-SemiBold';
     src: url(${MontserratSemiBold}) format('woff');
   }
-`;
+`

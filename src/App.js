@@ -9,7 +9,7 @@ import { Categories } from './components/views/Categories'
 import { Home } from './components/views/Home'
 import { Logout } from './components/views/Logout'
 import { MyThemeProvider } from './contexts/themeToggleContext'
-import { GlobalStyles } from './/styles/global';
+import { GlobalStyles } from './/styles/global'
 
 function App() {
   return (

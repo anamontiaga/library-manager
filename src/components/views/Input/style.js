@@ -8,7 +8,7 @@ const inputBorder = theme('mode', {
 
 export const InputContainerEl = styled.div`
   position: relative;
-  `
+`
 
 export const InputEl = styled.input`
   border: ${inputBorder};

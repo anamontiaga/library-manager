@@ -1,6 +1,6 @@
 export const Fonts = {
   body: {
     regular: 'Montserrat-Regular',
-    semiBold: 'Montserrat-SemiBold'
-  }
+    semiBold: 'Montserrat-SemiBold',
+  },
 }
