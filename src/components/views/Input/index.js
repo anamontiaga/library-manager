@@ -1,10 +1,17 @@
-import React from 'react'
-import { InputEl, InputContainerEl, ViewIconEl } from './style'
+import React, { useState } from 'react'
+import { InputEl, InputContainerEl, HandleViewButtonEl, ViewIconEl } from './style'
 import viewIcon from '../../../assets/visibility.png'
 
-export const Input = ({ onChange }) => (
-  <InputContainerEl>
-    <InputEl onChange={onChange} type="password" required pattern="\S+" />
-    <ViewIconEl src={viewIcon} />
-  </InputContainerEl>
-)
+export const Input = ({ onChange }) => {
+  const [hidePassword, setHidePassword] = useState(true);
+  const handlePassword = () => setHidePassword(!hidePassword);
+
+  return (
+    <InputContainerEl>
+      <InputEl onChange={onChange} type={hidePassword ? "password" : "text"} required pattern="\S+" />
+      <HandleViewButtonEl onClick={handlePassword}>
+        <ViewIconEl src={viewIcon} />
+      </HandleViewButtonEl>
+    </InputContainerEl>
+  )
+}

@@ -36,10 +36,7 @@ export const Home = () => {
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit}>
             <Input value={magicWord} onChange={handleInputChange} />
-            <MainButton
-              alt="Iniciar sesión"
-              label="Iniciar sesión"
-            />
+            <MainButton alt="Iniciar sesión" label="Iniciar sesión" />
           </FormEl>
         </FormContainerEl>
       </animated.div>

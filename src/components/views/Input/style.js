@@ -6,6 +6,15 @@ const inputBorder = theme('mode', {
   dark: 'none',
 })
 
+export const HandleViewButtonEl = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  :focus {
+    outline: none;
+  }
+`; 
+
 export const InputContainerEl = styled.div`
   position: relative;
 `
