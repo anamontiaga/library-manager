@@ -5,23 +5,21 @@ import { MainButton } from '../MainButton'
 import { SwitchThemeButton } from '../SwitchThemeButton'
 
 export const Header = ({ isPrivate }) => {
-
   return (
-    <ContainerEl >
+    <ContainerEl>
       {isPrivate ? (
         <>
           <LinkEl to={LOGOUT}>
-            <MainButton alt="Cerrar sesión" label="Cerrar sesión" small/>
+            <MainButton alt="Cerrar sesión" label="Cerrar sesión" small />
           </LinkEl>
           <SwitchThemeButton />
         </>
       ) : (
-          <>
-            <BrandEl>My Library Manager</BrandEl>
-            <SwitchThemeButton />
-          </>
-        )}
-
+        <>
+          <BrandEl>My Library Manager</BrandEl>
+          <SwitchThemeButton />
+        </>
+      )}
     </ContainerEl>
   )
 }

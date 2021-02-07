@@ -8,7 +8,7 @@ const containerBackground = theme('mode', {
 })
 
 export const ContainerEl = styled.div`
-  align-items: center; 
+  align-items: center;
   background: ${containerBackground};
   display: flex;
   flex-direction: row;
@@ -16,14 +16,14 @@ export const ContainerEl = styled.div`
   height: 50px;
   padding: 20px;
   width: auto;
-`;
+`
 
 export const BrandEl = styled.p`
-  color: #F4D03F;
+  color: #f4d03f;
   font-size: 16px;
   text-transform: uppercase;
   margin: 0;
-`;
+`
 
 export const LinkEl = styled(Link)`
   text-decoration: none;

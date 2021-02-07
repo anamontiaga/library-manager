@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import useFetch from '../../../utils/useFetch'
-import {Header} from '../Header'
+import { Header } from '../Header'
 
 export const Books = () => {
   const [state, fetchBooks] = useFetch()
@@ -28,9 +28,9 @@ export const Books = () => {
     const books = data
     console.log('ESTOY EN BOOKS', books)
     return (
-      <div style={{ background: 'red', height: '100vh'}}>
-        <Header isPrivate/>
-  
+      <div style={{ background: 'red', height: '100vh' }}>
+        <Header isPrivate />
+
         {books.map((book) => (
           <h1>{book.title}</h1>
         ))}

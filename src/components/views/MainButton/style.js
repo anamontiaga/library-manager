@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 export const ButtonEl = styled.button`
   align-items: center;
-  background-image: linear-gradient(to right, #16A085 0%, #F4D03F  51%, #16A085  100%);
+  background-image: linear-gradient(to right, #16a085 0%, #f4d03f 51%, #16a085 100%);
   background-size: 200% auto;
   border: none;
   border-radius: 4px;
@@ -11,15 +11,15 @@ export const ButtonEl = styled.button`
   cursor: pointer;
   display: block;
   flex-direction: row;
-  height: ${props => props.small ? '36px' : '56px'};
+  height: ${(props) => (props.small ? '36px' : '56px')};
   justify-content: center;
-  padding: ${props => props.small ? '12px 20px' : '15px 45px'};
+  padding: ${(props) => (props.small ? '12px 20px' : '15px 45px')};
   position: relative;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
   &:hover {
-    background-position: right center; 
+    background-position: right center;
     color: #fff;
     text-decoration: none;
   }
@@ -44,6 +44,6 @@ export const ButtonEl = styled.button`
 export const ContainerEl = styled.div``
 
 export const CaptionEl = styled.p`
-  font-size: ${props => props.small ? '12px' : '16px'};
+  font-size: ${(props) => (props.small ? '12px' : '16px')};
   margin: 0;
 `
