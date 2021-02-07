@@ -1,11 +1,16 @@
 import { createContext, useCallback, useMemo, useState } from 'react'
 
+const MY_AUTH_APP = 'MY_AUTH_APP'
+
 export const AuthContext = createContext()
 
 export const AuthContextProvider = ({ children }) => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false)
+  const [isAuthenticated, setIsAuthenticated] = useState(window.localStorage.getItem(MY_AUTH_APP))
 
-  const login = useCallback(() => setIsAuthenticated(true), [])
+  const login = useCallback(() => {
+    window.localStorage.setItem(MY_AUTH_APP, true)
+    setIsAuthenticated(true)
+  }, [])
 
   const value = useMemo(
     () => ({
