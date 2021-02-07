@@ -1,20 +1,10 @@
 import React, { useState } from 'react'
 import { useAuthContext } from '../../../hooks/useAuthContext'
 import { MAGIC_WORD } from '../../constants/magic_word'
-import styled from 'styled-components'
-import theme from 'styled-theming'
 import { SwitchThemeButton } from '../SwitchThemeButton'
+import { ContainerEl, LoginButtonEl } from './style'
 
-const buttonBackground = theme('mode', {
-  light: 'green',
-  dark: 'blue'
-});
-
-const LoginButtonEl = styled.button`
-    background: ${buttonBackground};
-  `;
-
-export const Home = ({ setThemeMode, themeMode }) => {
+export const Home = () => {
   const { login } = useAuthContext()
   const [magicWord, setMagicWord] = useState('')
 
@@ -29,12 +19,12 @@ export const Home = ({ setThemeMode, themeMode }) => {
   }
 
   return (
-    <div>
-      <SwitchThemeButton/>
+    <ContainerEl>
+      <SwitchThemeButton />
       <form onSubmit={handleSubmit}>
         <input type="text" value={magicWord} onChange={handleInputChange} />
         <LoginButtonEl type="submit">Iniciar sesión</LoginButtonEl>
       </form>
-    </div>
+    </ContainerEl>
   )
 }
