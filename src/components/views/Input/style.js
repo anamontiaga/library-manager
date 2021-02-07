@@ -6,6 +6,10 @@ const inputBorder = theme('mode', {
   dark: 'none',
 })
 
+export const InputContainerEl = styled.div`
+  position: relative;
+  `
+
 export const InputEl = styled.input`
   border: ${inputBorder};
   border-radius: 4px;
@@ -27,4 +31,12 @@ export const InputEl = styled.input`
   :valid {
     border: none;
   }
+`
+export const ViewIconEl = styled.img`
+  height: 26px;
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  width: 26px;
+  z-index: 1;
 `

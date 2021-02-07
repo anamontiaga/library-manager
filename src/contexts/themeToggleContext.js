@@ -7,7 +7,7 @@ export const useTheme = () => useContext(ThemeToggleContext)
 
 export const MyThemeProvider = ({ children }) => {
   const [themeState, setThemeState] = useState({
-    mode: 'light',
+    mode: 'dark',
   })
 
   const toggle = () => {

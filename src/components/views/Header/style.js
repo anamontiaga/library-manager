@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import { Link } from 'react-router-dom'
+import { Fonts } from '../../../styles/fonts'
 
 const containerBackground = theme('mode', {
   light: 'white',
@@ -20,9 +21,10 @@ export const ContainerEl = styled.div`
 
 export const BrandEl = styled.p`
   color: #f4d03f;
+  font-family: ${Fonts.body.semiBold};
   font-size: 16px;
-  text-transform: uppercase;
   margin: 0;
+  text-transform: uppercase;
 `
 
 export const LinkEl = styled(Link)`

@@ -25,10 +25,3 @@ export const FormContainerEl = styled.div`
   display: flex;
   flex-direction: column;
 `
-
-export const LandingImageEl = styled.img`
-  height: 1000px;
-  position: absolute;
-  width: 200px;
-  z-index: -1;
-`
