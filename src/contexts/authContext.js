@@ -14,12 +14,18 @@ export const AuthContextProvider = ({ children }) => {
     setIsAuthenticated(true)
   }, [])
 
+  const logout = useCallback(() => {
+    window.localStorage.removeItem(MY_AUTH_APP, true)
+    setIsAuthenticated(false)
+  }, [])
+
   const value = useMemo(
     () => ({
       login,
+      logout,
       isAuthenticated,
     }),
-    [isAuthenticated, login]
+    [isAuthenticated, login, logout]
   )
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>

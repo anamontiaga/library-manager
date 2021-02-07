@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import useFetch from '../../../utils/useFetch'
+import { LOGOUT } from '../../../config/router/paths'
 
 export const Books = () => {
   const [state, fetchBooks] = useFetch()
@@ -28,6 +30,7 @@ export const Books = () => {
     console.log('ESTOY EN BOOKS', books)
     return (
       <div style={{ background: 'red' }}>
+        <Link to={LOGOUT}>Cerrar Sesión</Link>
         {books.map((book) => (
           <h1>{book.title}</h1>
         ))}
