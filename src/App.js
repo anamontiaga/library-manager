@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import PrivateRoute from './components/router/PrivateRoute'
 import PublicRoute from './components/router/PublicRoute'
@@ -8,19 +8,22 @@ import { Books } from './components/views/Books'
 import { Categories } from './components/views/Categories'
 import { Home } from './components/views/Home'
 import { Logout } from './components/views/Logout'
+import { ThemeProvider } from 'styled-components'
 
 function App() {
   return (
-    <AuthContextProvider>
-      <Router>
-        <Switch>
-          <PublicRoute path={HOME} component={Home} exact />
-          <PrivateRoute path={LOGOUT} component={Logout} exact />
-          <PrivateRoute path={BOOKS} component={Books} exact />
-          <PrivateRoute path={CATEGORIES} component={Categories} exact />
-        </Switch>
-      </Router>
-    </AuthContextProvider>
+    <ThemeProvider theme={{ mode: 'light' }}>
+      <AuthContextProvider>
+        <Router>
+          <Switch>
+            <PublicRoute path={HOME} component={Home} exact />
+            <PrivateRoute path={LOGOUT} component={Logout} exact />
+            <PrivateRoute path={BOOKS} component={Books} exact />
+            <PrivateRoute path={CATEGORIES} component={Categories} exact />
+          </Switch>
+        </Router>
+      </AuthContextProvider>
+    </ThemeProvider>
   )
 }
 
