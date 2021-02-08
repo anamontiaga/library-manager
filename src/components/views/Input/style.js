@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
+import { Fonts } from '../../../styles/fonts'
 
 const inputBorder = theme('mode', {
   light: '2px solid #16A085',
@@ -27,7 +28,8 @@ export const InputEl = styled.input`
   cursor: pointer;
   color: black;
   height: 56px;
-  font-size: 24px;
+  font-family: ${Fonts.body.regular};
+  font-size: 18px;
   transition: all 0.2s ease-in-out;
   padding: 8px 8px 8px 16px;
   width: 215px;
@@ -37,12 +39,11 @@ export const InputEl = styled.input`
     border-image-source: linear-gradient(to left, #f4d03f, #16a085);
     outline: none;
   }
-  :valid {
-    border: none;
-  }
+ 
 `
-export const ViewIconEl = styled.img`
+export const ViewIconEl = styled.svg`
   height: 26px;
+  fill: black;
   position: absolute;
   right: 16px;
   top: 16px;

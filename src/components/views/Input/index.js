@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InputEl, InputContainerEl, HandleViewButtonEl, ViewIconEl } from './style'
-import viewIcon from '../../../assets/visibility.png'
+import {crossViewIcon, viewIcon } from '../../../assets/icons'
 
 export const Input = ({ onChange }) => {
   const [hidePassword, setHidePassword] = useState(true)
@@ -15,7 +15,7 @@ export const Input = ({ onChange }) => {
         pattern="\S+"
       />
       <HandleViewButtonEl onClick={handlePassword}>
-        <ViewIconEl src={viewIcon} />
+        <ViewIconEl>{hidePassword ? crossViewIcon : viewIcon}</ViewIconEl>
       </HandleViewButtonEl>
     </InputContainerEl>
   )

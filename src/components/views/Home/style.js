@@ -8,6 +8,8 @@ const containerBackground = theme('mode', {
 
 export const ContainerEl = styled.div`
   background: ${containerBackground};
+  display: flex;
+  flex-direction: column;
   height: 100vh;
   width: auto;
 `
