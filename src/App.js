@@ -1,15 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import PrivateRoute from './components/router/PrivateRoute'
 import PublicRoute from './components/router/PublicRoute'
 import { AuthContextProvider } from './contexts/authContext'
-import { BOOKS, CATEGORIES, HOME, LOGOUT } from './config/router/paths'
+import { BOOKS, BOOK_DETAIL, CATEGORIES, HOME, LOGOUT } from './config/router/paths'
 import { Books } from './components/views/Books'
+import { BookDetail } from './components/views/BookDetail'
 import { Categories } from './components/views/Categories'
 import { Home } from './components/views/Home'
 import { Logout } from './components/views/Logout'
 import { MyThemeProvider } from './contexts/themeToggleContext'
-import { GlobalStyles } from './/styles/global'
+import { GlobalStyles } from './styles/global'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <PrivateRoute path={LOGOUT} component={Logout} exact />
             <PrivateRoute path={BOOKS} component={Books} exact />
             <PrivateRoute path={CATEGORIES} component={Categories} exact />
+            <PrivateRoute path={BOOK_DETAIL} component={BookDetail} exact />
           </Switch>
         </Router>
       </AuthContextProvider>

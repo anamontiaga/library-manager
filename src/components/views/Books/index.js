@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import Loader from 'react-loader-spinner'
 import useFetch from '../../../utils/useFetch'
+import { BookItem } from '../BookItem'
 import { Header } from '../Header'
-import { BooksViewEl, LoaderContainerEl } from './style'
+import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 
 export const Books = () => {
   const [state, fetchBooks] = useFetch()
@@ -42,8 +43,11 @@ export const Books = () => {
       <>
         <Header isPrivate />
         <BooksViewEl>
+          {console.log({ books })}
           {books.map((book) => (
-            <h1>{book.title}</h1>
+            <LinkEl to={{pathname: `/books/:${book.id}`, query: { title: `${book.title}`, id: `${book.id}`, image: `${book.image}`, categories: book.categories }}}>
+              <BookItem key={book.id} image={book.image} title={book.title} />
+            </LinkEl>
           ))}
         </BooksViewEl>
       </>
