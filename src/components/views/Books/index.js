@@ -45,7 +45,17 @@ export const Books = () => {
         <BooksViewEl>
           {console.log({ books })}
           {books.map((book) => (
-            <LinkEl to={{pathname: `/books/:${book.id}`, query: { title: `${book.title}`, id: `${book.id}`, image: `${book.image}`, categories: book.categories }}}>
+            <LinkEl
+              to={{
+                pathname: `/books/:${book.id}`,
+                query: {
+                  title: `${book.title}`,
+                  id: `${book.id}`,
+                  image: `${book.image}`,
+                  categories: book.categories,
+                },
+              }}
+            >
               <BookItem key={book.id} image={book.image} title={book.title} />
             </LinkEl>
           ))}

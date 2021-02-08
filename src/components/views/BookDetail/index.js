@@ -3,7 +3,9 @@ import { Header } from '../Header'
 import { BookDetailViewEl, BookImageEl, BookTitleEl, CardEl } from './style'
 
 export const BookDetail = ({ location }) => {
-  const { query: { title, image, id, categories } } = location
+  const {
+    query: { title, image, id, categories },
+  } = location
   return (
     <>
       <Header isPrivate />

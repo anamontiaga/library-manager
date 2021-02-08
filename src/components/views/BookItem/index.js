@@ -1,9 +1,5 @@
 import React from 'react'
-import {
-  ContainerEl,
-  BookImageEl,
-  BookTitleEl,
-} from './style'
+import { ContainerEl, BookImageEl, BookTitleEl } from './style'
 
 export const BookItem = ({ image, title }) => (
   <ContainerEl>

@@ -15,7 +15,7 @@ export const BooksViewEl = styled.div`
 
 export const LinkEl = styled(Link)`
   text-decoration: none;
-  `
+`
 
 export const LoaderContainerEl = styled.div`
   align-items: center;

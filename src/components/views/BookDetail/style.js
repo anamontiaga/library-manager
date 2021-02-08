@@ -5,7 +5,7 @@ import { Fonts } from '../../../styles/fonts'
 const cardBorder = theme('mode', {
   light: '2px solid #16A085',
   dark: '2px solid #f4d03f',
-}) 
+})
 
 const containerBackground = theme('mode', {
   light: 'white',
@@ -21,7 +21,7 @@ export const CardEl = styled.div`
   border: ${cardBorder};
   border-radius: 8px;
   padding: 20px;
-  `
+`
 
 export const BookDetailViewEl = styled.div`
   background: ${containerBackground};

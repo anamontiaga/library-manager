@@ -5,7 +5,7 @@ import { Fonts } from '../../../styles/fonts'
 const cardBorder = theme('mode', {
   light: '2px solid #16A085',
   dark: '2px solid #f4d03f',
-}) 
+})
 
 const textColor = theme('mode', {
   light: 'black',
