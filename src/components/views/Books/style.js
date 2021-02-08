@@ -7,15 +7,15 @@ const containerBackground = theme('mode', {
 })
 
 export const BooksViewEl = styled.div`
-  background: ${containerBackground}; 
+  background: ${containerBackground};
   height: 100vh;
   padding: 20px;
 `
 
 export const LoaderContainerEl = styled.div`
-align-items: center;
-justify-content: center;
-display: flex;
-height: 80vh;
-width: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 80vh;
+  width: auto;
 `

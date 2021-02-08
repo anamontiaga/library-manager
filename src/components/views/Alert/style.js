@@ -1,4 +1,3 @@
-
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import { Fonts } from '../../../styles/fonts'
@@ -10,8 +9,12 @@ const textColor = theme('mode', {
 
 export const ContainerEl = styled.div`
   align-items: center;
-  background: rgb(251,27,87);
-  background: linear-gradient(125deg, rgba(251,27,87,0.3) 0%, rgba(0,0,0,0.1) 20%);
+  background: rgb(251, 27, 87);
+  background: linear-gradient(
+    125deg,
+    rgba(251, 27, 87, 0.3) 0%,
+    rgba(0, 0, 0, 0.1) 20%
+  );
   border-radius: 8px;
   box-sizing: border-box;
   display: flex;
@@ -51,5 +54,5 @@ export const SubMessageEl = styled.p`
   color: ${textColor};
   font-family: ${Fonts.body.regular};
   font-size: 11px;
-  margin: 0;  
+  margin: 0;
 `

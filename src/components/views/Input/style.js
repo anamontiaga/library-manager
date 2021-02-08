@@ -39,7 +39,6 @@ export const InputEl = styled.input`
     border-image-source: linear-gradient(to left, #f4d03f, #16a085);
     outline: none;
   }
- 
 `
 export const ViewIconEl = styled.svg`
   height: 26px;

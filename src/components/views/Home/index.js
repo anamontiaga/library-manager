@@ -52,16 +52,15 @@ export const Home = () => {
         </FormContainerEl>
       </animated.div>
       {alert && (
-
         <div style={{ marginTop: 'auto' }}>
           <animated.div style={openAlertAnimation}>
             <Alert
-              message='Ouccch, la contraseña no es correcta'
-              subMessage='Vuelve a intentarlo!'
-              onClose={() => setAlert(false)} />
+              message="Ouccch, la contraseña no es correcta"
+              subMessage="Vuelve a intentarlo!"
+              onClose={() => setAlert(false)}
+            />
           </animated.div>
         </div>
-
       )}
     </ContainerEl>
   )

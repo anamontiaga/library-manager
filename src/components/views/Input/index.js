@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { InputEl, InputContainerEl, HandleViewButtonEl, ViewIconEl } from './style'
-import {crossViewIcon, viewIcon } from '../../../assets/icons'
+import { crossViewIcon, viewIcon } from '../../../assets/icons'
 
 export const Input = ({ onChange }) => {
   const [hidePassword, setHidePassword] = useState(true)
