@@ -6,7 +6,7 @@ import {
   MessageEl,
   SubMessageEl,
 } from './style'
-import closeIcon from '../../../assets/cancel.png'
+import closeIcon from 'assets/cancel.png'
 
 export const Alert = ({ message, onClose, subMessage }) => (
   <ContainerEl>

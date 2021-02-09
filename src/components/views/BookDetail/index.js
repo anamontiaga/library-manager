@@ -1,5 +1,5 @@
 import React from 'react'
-import { Header } from '../Header'
+import { Header } from 'components/views/Header'
 import { BookDetailViewEl, BookImageEl, BookTitleEl, CardEl } from './style'
 
 export const BookDetail = ({ location }) => {

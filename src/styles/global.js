@@ -1,6 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
-import MontserratRegular from '../fonts/Montserrat-Regular.woff'
-import MontserratSemiBold from '../fonts/Montserrat-SemiBold.woff'
+import MontserratRegular from 'fonts/Montserrat-Regular.woff'
+import MontserratSemiBold from 'fonts/Montserrat-SemiBold.woff'
 
 export const GlobalStyles = createGlobalStyle`
   @font-face {

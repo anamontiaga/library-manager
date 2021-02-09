@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import Loader from 'react-loader-spinner'
-import useFetch from '../../../utils/useFetch'
-import { BookItem } from '../BookItem'
-import { Header } from '../Header'
+import useFetch from 'utils/useFetch'
+import { BookItem } from 'components/views/BookItem'
+import { Header } from 'components/views/Header'
 import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 
 export const Books = () => {
@@ -43,7 +43,6 @@ export const Books = () => {
       <>
         <Header isPrivate />
         <BooksViewEl>
-          {console.log({ books })}
           {books.map((book) => (
             <LinkEl
               to={{

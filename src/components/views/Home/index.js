@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
-import { useAuthContext } from '../../../hooks/useAuthContext'
-import { MAGIC_WORD } from '../../constants/magic_word'
-import { Alert } from '../Alert'
-import { Header } from '../Header'
-import { Input } from '../Input'
-import { MainButton } from '../MainButton'
+import { useAuthContext } from 'hooks/useAuthContext'
+import { MAGIC_WORD } from 'components/constants/magic_word'
+import { Alert } from 'components/views/Alert'
+import { Header } from 'components/views/Header'
+import { Input } from 'components/views/Input'
+import { MainButton } from 'components/views/MainButton'
 import { ContainerEl, FormEl, FormContainerEl } from './style'
 
 export const Home = () => {
@@ -13,8 +13,6 @@ export const Home = () => {
   const [magicWord, setMagicWord] = useState('')
   const [initialised, setInitialised] = useState(false)
   const [alert, setAlert] = useState(false)
-
-  console.log({ alert })
 
   const handleInputChange = (e) => {
     setMagicWord(e.target.value)
