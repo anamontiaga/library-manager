@@ -26,14 +26,14 @@ export const SwitchLabelEl = styled.label`
     width: 26px;
     margin-left: 4px;
   }
-    ${isTablet} {
-      border: 3px solid #16a085;
-      height: 42px;
-      width: 76px;
-      ::after {
-        margin: 3px;
-        height: 30px;
-        width: 30px;
+  ${isTablet} {
+    border: 3px solid #16a085;
+    height: 42px;
+    width: 76px;
+    ::after {
+      margin: 3px;
+      height: 30px;
+      width: 30px;
     }
   }
 `
@@ -57,12 +57,12 @@ export const SwitchEl = styled.input`
       width: 26px;
     }
   }
-    ${isTablet} {
-        :checked + ${SwitchLabelEl} {
-          ::after {
-          height: 30px;
-          width: 30px;
-        }
+  ${isTablet} {
+    :checked + ${SwitchLabelEl} {
+      ::after {
+        height: 30px;
+        width: 30px;
       }
     }
+  }
 `
