@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
+import { isTablet } from 'utils/mediaqueries'
 
 const containerBackground = theme('mode', {
   light: 'white',
@@ -21,6 +22,9 @@ export const FormEl = styled.form`
   height: 140px;
   justify-content: space-between;
   margin-top: 50%;
+  ${isTablet} {
+    margin-top: 10%;
+  }
 `
 
 export const FormContainerEl = styled.div`

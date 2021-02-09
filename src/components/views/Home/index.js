@@ -53,7 +53,7 @@ export const Home = () => {
         <div style={{ marginTop: 'auto' }}>
           <animated.div style={openAlertAnimation}>
             <Alert
-              message="Ouccch, la contraseña no es correcta"
+              message="Ouccch! La contraseña no es correcta"
               subMessage="Vuelve a intentarlo!"
               onClose={() => setAlert(false)}
             />

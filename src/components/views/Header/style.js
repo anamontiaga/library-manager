@@ -1,7 +1,8 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import { Link } from 'react-router-dom'
-import { Fonts } from '../../../styles/fonts'
+import { Fonts } from 'styles/fonts'
+import { isTablet, isDesktop } from 'utils/mediaqueries'
 
 const containerBackground = theme('mode', {
   light: 'white',
@@ -17,6 +18,10 @@ export const ContainerEl = styled.div`
   height: 50px;
   padding: 20px;
   width: auto;
+  ${isTablet} {
+    height: 70px;
+    padding: 50px;
+  }
 `
 
 export const BrandEl = styled.p`
@@ -25,6 +30,12 @@ export const BrandEl = styled.p`
   font-size: 16px;
   margin: 0;
   text-transform: uppercase;
+  ${isTablet} {
+    font-size: 18px;
+  }
+  ${isDesktop} {
+    font-size: 20px;
+  }
 `
 
 export const LinkEl = styled(Link)`
