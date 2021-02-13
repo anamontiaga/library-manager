@@ -4,12 +4,16 @@ import { Link } from 'react-router-dom'
 
 const containerBackground = theme('mode', {
   light: 'white',
-  dark: 'linear-gradient(335deg, #2d3436 0%, #000000 74%)',
+  dark: 'linear-gradient(335deg, #2d3436 0%, #000000 50%)',
 })
 
-export const BooksViewEl = styled.div`
+export const BackgroundEl = styled.div`
   background: ${containerBackground};
-  height: 100%;
+  height: 100vh;
+` 
+
+export const BooksViewEl = styled.div`
+  background: black;
   padding: 20px;
 `
 

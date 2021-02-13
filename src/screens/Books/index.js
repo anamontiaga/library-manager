@@ -4,7 +4,8 @@ import useFetch from 'utils/useFetch'
 import { BookItem } from 'components/BookItem'
 import { Header } from 'components/Header'
 import { SelectInput } from 'components/SelectInput'
-import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
+import { Colors } from 'styles/colors'
+import { BackgroundEl, BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 
 export const Books = () => {
   const [books, fetchBooks] = useFetch()
@@ -30,7 +31,7 @@ export const Books = () => {
       <LoaderContainerEl>
         <Loader
           type="ThreeDots"
-          color="#f4d03f"
+          color={`${Colors.yellow}`}
           height={70}
           width={70}
           timeout={4000}
@@ -45,6 +46,7 @@ export const Books = () => {
 
   if (books.isSuccess || categories.isSuccess) {
     const booksData = books.data
+    console.log({booksData})
     const categoriesData = categories.data
 
     const categoryOptions = categoriesData.map((category) => {
@@ -74,7 +76,7 @@ export const Books = () => {
     const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique)
 
     return (
-      <>
+      <BackgroundEl>
         <Header isPrivate />
         <BooksViewEl>
           <SelectInput
@@ -98,7 +100,7 @@ export const Books = () => {
             </LinkEl>
           ))}
         </BooksViewEl>
-      </>
+      </BackgroundEl>
     )
   }
   return null

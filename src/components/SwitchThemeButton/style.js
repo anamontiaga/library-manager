@@ -1,12 +1,13 @@
 import styled from 'styled-components'
 import { isTablet } from 'utils/mediaqueries'
+import { Colors } from 'styles/colors'
 
 export const SwitchWrapperEl = styled.div`
   position: relative;
 `
 
 export const SwitchLabelEl = styled.label`
-  border: 2px solid #16a085;
+  border: 2px solid ${Colors.green};
   border-radius: 20px;
   box-sizing: border-box;
   cursor: pointer;
@@ -17,7 +18,7 @@ export const SwitchLabelEl = styled.label`
   transition: all 0.2s ease-in-out;
   width: 70px;
   ::after {
-    background: #f4d03f;
+    background: ${Colors.yellow};
     border-radius: 2rem;
     content: '';
     display: block;
@@ -27,7 +28,7 @@ export const SwitchLabelEl = styled.label`
     margin-left: 4px;
   }
   ${isTablet} {
-    border: 3px solid #16a085;
+    border: 3px solid ${Colors.green};
     height: 42px;
     width: 76px;
     ::after {
@@ -46,9 +47,9 @@ export const SwitchEl = styled.input`
   height: 34px;
   width: 68px;
   :checked + ${SwitchLabelEl} {
-    background: #f4d03f;
+    background: ${Colors.yellow};
     ::after {
-      background: #16a085;
+      background: ${Colors.green};
       border-radius: 50%;
       content: '';
       display: block;

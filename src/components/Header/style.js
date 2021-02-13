@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import { Link } from 'react-router-dom'
+import { Colors } from 'styles/colors'
 import { Fonts } from 'styles/fonts'
 import { isTablet, isDesktop } from 'utils/mediaqueries'
 
@@ -25,7 +26,7 @@ export const ContainerEl = styled.div`
 `
 
 export const BrandEl = styled.p`
-  color: #f4d03f;
+  color: ${Colors.yellow};
   font-family: ${Fonts.body.semiBold};
   font-size: 16px;
   margin: 0;

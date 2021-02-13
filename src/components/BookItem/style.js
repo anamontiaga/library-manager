@@ -1,10 +1,11 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
+import { Colors } from 'styles/colors'
 import { Fonts } from 'styles/fonts'
 
 const cardBorder = theme('mode', {
-  light: '2px solid #16A085',
-  dark: '2px solid #f4d03f',
+  light: `2px solid ${Colors.green}`,
+  dark: `2px solid ${Colors.yellow}`,
 })
 
 const textColor = theme('mode', {

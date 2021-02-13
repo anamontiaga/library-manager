@@ -1,8 +1,9 @@
 import styled from 'styled-components'
+import { Colors } from 'styles/colors'
 
 export const ButtonEl = styled.button`
   align-items: center;
-  background-image: linear-gradient(to right, #16a085 0%, #f4d03f 51%, #16a085 100%);
+  background-image: linear-gradient(to right, ${Colors.green} 0%, ${Colors.yellow} 51%, ${Colors.green} 100%);
   background-size: 200% auto;
   border: none;
   border-radius: 4px;

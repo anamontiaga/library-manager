@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
+import { Colors } from 'styles/colors'
 import { Fonts } from 'styles/fonts'
 
 const inputBorder = theme('mode', {
-  light: '2px solid #16A085',
+  light: `2px solid ${Colors.green}`,
   dark: 'none',
 })
 
@@ -24,7 +25,7 @@ export const InputEl = styled.input`
   border: ${inputBorder};
   border-radius: 4px;
   box-sizing: border-box;
-  caret-color: #16a085;
+  caret-color: ${Colors.green};
   cursor: pointer;
   color: black;
   height: 56px;
@@ -36,7 +37,7 @@ export const InputEl = styled.input`
   :focus {
     border-image-slice: 1;
     border-width: 3px;
-    border-image-source: linear-gradient(to left, #f4d03f, #16a085);
+    border-image-source: linear-gradient(to left, ${Colors.yellow}, ${Colors.green});
     outline: none;
   }
 `
