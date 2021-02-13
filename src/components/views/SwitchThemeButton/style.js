@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { isTablet, isDesktop } from 'utils/mediaqueries'
+import { isTablet } from 'utils/mediaqueries'
 
 export const SwitchWrapperEl = styled.div`
   position: relative;
