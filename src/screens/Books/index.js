@@ -46,7 +46,6 @@ export const Books = () => {
 
   if (books.isSuccess || categories.isSuccess) {
     const booksData = books.data
-    console.log({booksData})
     const categoriesData = categories.data
 
     const categoryOptions = categoriesData.map((category) => {
@@ -96,7 +95,7 @@ export const Books = () => {
                 },
               }}
             >
-              <BookItem key={book.id} image={book.image} title={book.title} />
+              <BookItem id={book.id} image={book.image} title={book.title} />
             </LinkEl>
           ))}
         </BooksViewEl>

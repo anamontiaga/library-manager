@@ -1,16 +1,23 @@
 import styled from 'styled-components'
+import theme from 'styled-theming'
 import { Colors } from 'styles/colors'
+import { Fonts } from 'styles/fonts'
+
+const buttonBorder = theme('mode', {
+  light: `2px solid ${Colors.green}`,
+  dark: `2px solid ${Colors.yellow}`,
+})
+
+const buttonCaptionColor = theme('mode', {
+  light: `${Colors.green}`,
+  dark: `${Colors.yellow}`,
+})
 
 export const ButtonEl = styled.button`
   align-items: center;
-  background-image: linear-gradient(
-    to right,
-    ${Colors.green} 0%,
-    ${Colors.yellow} 51%,
-    ${Colors.green} 100%
-  );
+  background: transparent;
   background-size: 200% auto;
-  border: none;
+  border: ${buttonBorder};
   border-radius: 4px;
   box-sizing: border-box;
   color: white;
@@ -19,7 +26,7 @@ export const ButtonEl = styled.button`
   flex-direction: row;
   height: ${(props) => (props.small ? '36px' : '56px')};
   justify-content: center;
-  padding: ${(props) => (props.small ? '12px 20px' : '15px 45px')};
+  padding: ${(props) => (props.small ? '8px 20px' : '15px 45px')};
   position: relative;
   text-align: center;
   text-transform: uppercase;
@@ -50,6 +57,8 @@ export const ButtonEl = styled.button`
 export const ContainerEl = styled.div``
 
 export const CaptionEl = styled.p`
+  color: ${buttonCaptionColor};
+  font-family: ${Fonts.body.regular};
   font-size: ${(props) => (props.small ? '12px' : '16px')};
   margin: 0;
 `

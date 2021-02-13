@@ -7,13 +7,19 @@ const containerBackground = theme('mode', {
   dark: 'linear-gradient(335deg, #2d3436 0%, #000000 50%)',
 })
 
+const viewBackground = theme('mode', {
+  light: 'white',
+  dark: 'black',
+})
+
+
 export const BackgroundEl = styled.div`
   background: ${containerBackground};
   height: 100vh;
-` 
+`
 
 export const BooksViewEl = styled.div`
-  background: black;
+  background: ${viewBackground};
   padding: 20px;
 `
 

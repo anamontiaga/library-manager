@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
+import blobToBase64 from 'utils/base64';
 import { Header } from 'components/Header'
 import { MainButton } from 'components/MainButton'
-import { ContainerEl, ErrorEl, FormEl, FormContainerEl } from './style'
+import { AddImageContainerEl, ContainerEl, ErrorEl, FormEl, FormContainerEl, ImageEl, InputFileEl, LabelEl } from './style'
 
 export const BookCreate = () => {
   const [state, postBook] = useFetch()
@@ -16,14 +17,17 @@ export const BookCreate = () => {
   useEffect(() => setInitialised(true))
 
   const handleImage = (event) => {
-    setBookImage(URL.createObjectURL(event.target.files[0])
-    )
+    setBookImage(URL.createObjectURL(event.target.files[0]))
   }
+
   const onSubmit = (data) => {
+    const baseImage = blobToBase64(bookImage);
+    const dataToSend = { ...data, image: baseImage }
+    console.log({ dataToSend })
     postBook({
       url: 'http://18.130.120.189/api/books',
       method: 'POST',
-      body: JSON.stringify({ title: data.title, image: bookImage}),
+      body: JSON.stringify(dataToSend),
     })
   }
 
@@ -38,13 +42,20 @@ export const BookCreate = () => {
       <animated.div style={startFormAnimation}>
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit(onSubmit)}>
-            <div>
+            <div style={{ width: '170px' }}>
               <input name="title" ref={register({ required: true })} />
               {errors.title && <ErrorEl>This field is required</ErrorEl>}
-              <div>
-                <input name='image' type="file" ref={register} onChange={handleImage} />
-                <img style={{ height: 100 }} src={bookImage} />
-              </div>
+              <InputFileEl
+                name="image"
+                type="file"
+                id="file-input"
+                ref={register}
+                onChange={handleImage}
+              />
+              <AddImageContainerEl>
+                <LabelEl htmlFor="file-input">Añadir portada</LabelEl>
+                <ImageEl src={bookImage} />
+              </AddImageContainerEl>
             </div>
             <MainButton type="submit" label="Guardar" />
           </FormEl>

@@ -14,6 +14,24 @@ const errorTextColor = theme('mode', {
   dark: `${Colors.yellow}`,
 })
 
+const inputFileBorder = theme('mode', {
+  light: `2px solid ${Colors.green}`,
+  dark: `2px solid ${Colors.yellow}`,
+})
+
+const inputFileTextColor = theme('mode', {
+  light: `${Colors.green}`,
+  dark: `${Colors.yellow}`,
+})
+
+export const AddImageContainerEl = styled.div`
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 60px;
+  margin-top: 20px;
+`
+
 export const ContainerEl = styled.div`
   background: ${containerBackground};
   display: flex;
@@ -44,4 +62,31 @@ export const FormEl = styled.form`
 export const FormContainerEl = styled.div`
   display: flex;
   flex-direction: column;
+`
+
+export const ImageEl = styled.img`
+  height: 80px;
+`
+
+export const InputFileEl = styled.input`
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  width: 0.1px;
+  z-index: -1;
+`
+
+export const LabelEl = styled.label`
+  align-items: center;
+  background-color: transparent;
+  border: ${inputFileBorder};
+  border-radius: 4px;
+  color: ${inputFileTextColor};
+  cursor: pointer;
+  display: inline-flex;
+  font-family: ${Fonts.body.semiBold};
+  font-size: 8px;
+  text-transform: capitalize;
+  padding: 10px 12px;
 `
