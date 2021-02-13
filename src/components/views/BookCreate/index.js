@@ -12,7 +12,7 @@ export const BookCreate = () => {
   const [initialised, setInitialised] = useState(false)
   const [alert, setAlert] = useState(false)
 
-  const { register, handleSubmit, errors } = useForm();
+  const { register, handleSubmit, errors } = useForm()
 
   useEffect(() => setInitialised(true))
 
@@ -20,7 +20,7 @@ export const BookCreate = () => {
     postBook({
       url: 'http://18.130.120.189/api/books',
       method: 'POST',
-      body: JSON.stringify({ data })
+      body: JSON.stringify({ data }),
     })
   }
 
@@ -65,4 +65,3 @@ export const BookCreate = () => {
     </ContainerEl>
   )
 }
-

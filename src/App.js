@@ -3,7 +3,14 @@ import { BrowserRouter as Router, Switch } from 'react-router-dom'
 import PrivateRoute from './components/router/PrivateRoute'
 import PublicRoute from './components/router/PublicRoute'
 import { AuthContextProvider } from './contexts/authContext'
-import { BOOKS, BOOK_DETAIL, BOOK_CREATE, CATEGORIES, HOME, LOGOUT } from './config/router/paths'
+import {
+  BOOKS,
+  BOOK_DETAIL,
+  BOOK_CREATE,
+  CATEGORIES,
+  HOME,
+  LOGOUT,
+} from './config/router/paths'
 import { Books } from './components/views/Books'
 import { BookDetail } from './components/views/BookDetail'
 import { BookCreate } from './components/views/BookCreate'
