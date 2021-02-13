@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import Loader from 'react-loader-spinner'
 import useFetch from 'utils/useFetch'
-import { BookItem } from 'components/views/BookItem'
-import { Header } from 'components/views/Header'
-import { SelectInput } from 'components/views/SelectInput'
+import { BookItem } from 'components/BookItem'
+import { Header } from 'components/Header'
+import { SelectInput } from 'components/SelectInput'
 import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 
 export const Books = () => {

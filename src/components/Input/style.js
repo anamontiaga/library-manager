@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import theme from 'styled-theming'
-import { Fonts } from '../../../styles/fonts'
+import { Fonts } from 'styles/fonts'
 
 const inputBorder = theme('mode', {
   light: '2px solid #16A085',

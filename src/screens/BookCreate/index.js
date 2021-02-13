@@ -2,15 +2,15 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
-import { Alert } from 'components/views/Alert'
-import { Header } from 'components/views/Header'
-import { MainButton } from 'components/views/MainButton'
+// import { Alert } from 'components/Alert'
+import { Header } from 'components/Header'
+import { MainButton } from 'components/MainButton'
 import { ContainerEl, ErrorEl, FormEl, FormContainerEl } from './style'
 
 export const BookCreate = () => {
   const [state, postBook] = useFetch()
   const [initialised, setInitialised] = useState(false)
-  const [alert, setAlert] = useState(false)
+  // const [alert, setAlert] = useState(false)
 
   const { register, handleSubmit, errors } = useForm()
 
@@ -36,7 +36,7 @@ export const BookCreate = () => {
 
   return (
     <ContainerEl>
-      <Header />
+      <Header isPrivate />
       <animated.div style={startFormAnimation}>
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit(onSubmit)}>

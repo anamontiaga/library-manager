@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { animated, useSpring } from 'react-spring'
 import { useAuthContext } from 'hooks/useAuthContext'
-import { MAGIC_WORD } from 'components/constants/magic_word'
-import { Alert } from 'components/views/Alert'
-import { Header } from 'components/views/Header'
-import { Input } from 'components/views/Input'
-import { MainButton } from 'components/views/MainButton'
+import { MAGIC_WORD } from 'constants/magic_word'
+import { Alert } from 'components/Alert'
+import { Header } from 'components/Header'
+import { Input } from 'components/Input'
+import { MainButton } from 'components/MainButton'
 import { ContainerEl, FormEl, FormContainerEl } from './style'
 
 export const Home = () => {

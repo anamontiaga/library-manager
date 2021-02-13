@@ -1,8 +1,8 @@
 import React from 'react'
 import { LOGOUT } from 'config/router/paths'
 import { BrandEl, ContainerEl, LinkEl } from './style'
-import { MainButton } from 'components/views/MainButton'
-import { SwitchThemeButton } from 'components/views/SwitchThemeButton'
+import { MainButton } from 'components/MainButton'
+import { SwitchThemeButton } from 'components/SwitchThemeButton'
 
 export const Header = ({ isPrivate }) => {
   return (
