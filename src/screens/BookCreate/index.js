@@ -2,10 +2,19 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
-import blobToBase64 from 'utils/base64';
+import blobToBase64 from 'utils/base64'
 import { Header } from 'components/Header'
 import { MainButton } from 'components/MainButton'
-import { AddImageContainerEl, ContainerEl, ErrorEl, FormEl, FormContainerEl, ImageEl, InputFileEl, LabelEl } from './style'
+import {
+  AddImageContainerEl,
+  ContainerEl,
+  ErrorEl,
+  FormEl,
+  FormContainerEl,
+  ImageEl,
+  InputFileEl,
+  LabelEl,
+} from './style'
 
 export const BookCreate = () => {
   const [state, postBook] = useFetch()
@@ -21,7 +30,7 @@ export const BookCreate = () => {
   }
 
   const onSubmit = (data) => {
-    const baseImage = blobToBase64(bookImage);
+    const baseImage = blobToBase64(bookImage)
     const dataToSend = { ...data, image: baseImage }
     console.log({ dataToSend })
     postBook({

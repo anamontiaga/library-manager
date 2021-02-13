@@ -12,7 +12,6 @@ const viewBackground = theme('mode', {
   dark: 'black',
 })
 
-
 export const BackgroundEl = styled.div`
   background: ${containerBackground};
   height: 100vh;

@@ -21,11 +21,11 @@ export const Header = ({ isPrivate }) => {
           <SwitchThemeButton />
         </>
       ) : (
-          <>
-            <BrandEl>My Library Manager</BrandEl>
-            <SwitchThemeButton />
-          </>
-        )}
+        <>
+          <BrandEl>My Library Manager</BrandEl>
+          <SwitchThemeButton />
+        </>
+      )}
     </ContainerEl>
   )
 }

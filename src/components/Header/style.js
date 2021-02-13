@@ -43,7 +43,7 @@ export const ButtonsContainerEl = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  `
+`
 
 export const LinkEl = styled(Link)`
   text-decoration: none;

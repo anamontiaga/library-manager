@@ -44,11 +44,7 @@ export const Home = () => {
       <animated.div style={startFormAnimation}>
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit}>
-            <Input
-              value={magicWord}
-              onChange={handleInputChange}
-              password
-            />
+            <Input value={magicWord} onChange={handleInputChange} password />
             <MainButton alt="Iniciar sesión" label="Iniciar sesión" />
           </FormEl>
         </FormContainerEl>
