@@ -2,10 +2,9 @@ import React from 'react'
 import Select from 'react-select'
 import { customStyles, SingleOptionEl } from './style'
 
-const SingleValueOption = (data) =>
-  <SingleOptionEl {...data}>
-    {data.data.value}
-  </SingleOptionEl>
+const SingleValueOption = (data) => (
+  <SingleOptionEl {...data}>{data.data.value}</SingleOptionEl>
+)
 
 export const SelectInput = ({ onChange, options }) => (
   <Select

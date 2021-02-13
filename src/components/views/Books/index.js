@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Loader from 'react-loader-spinner'
 import useFetch from 'utils/useFetch'
 import { BookItem } from 'components/views/BookItem'
@@ -9,6 +9,7 @@ import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 export const Books = () => {
   const [books, fetchBooks] = useFetch()
   const [categories, fetchCategories] = useFetch()
+  const [selectedCategories, setSelectedCategories] = useState()
 
   useEffect(
     function () {
@@ -45,24 +46,36 @@ export const Books = () => {
   if (books.isSuccess || categories.isSuccess) {
     const booksData = books.data
     const categoriesData = categories.data
-    console.log({ categoriesData })
-    console.log({ booksData })
 
     const categoryOptions = categoriesData.map((category) => {
       return {
-        value: `${category.name}`, label: `${category.name}`, id: `${category.id}`
+        value: `${category.name}`,
+        label: `${category.name}`,
+        id: `${category.id}`,
       }
     })
 
+    const filteredBooks = selectedCategories?.map(selectedCategory => 
+      booksData.filter(book => book.categories.every(category => category.name === selectedCategory.value)));
+
+    const concatBookArrayByCategory = []
+    const booksFilteredByCategory = concatBookArrayByCategory.concat.apply(concatBookArrayByCategory, filteredBooks)
+
+    const onlyUnique = (value, index, self) => {
+      return self.indexOf(value) === index;
+    }
+  
+    const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique);
+    
     return (
       <>
         <Header isPrivate />
         <BooksViewEl>
           <SelectInput
-            onChange={(value) => console.log(value)}
+            onChange={(value) => setSelectedCategories(value)}
             options={categoryOptions}
           />
-          {booksData.map((book) => (
+          {uniqueFilteredBooks.map((book) => (
             <LinkEl
               key={book.id}
               to={{
