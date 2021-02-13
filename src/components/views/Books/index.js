@@ -3,22 +3,28 @@ import Loader from 'react-loader-spinner'
 import useFetch from 'utils/useFetch'
 import { BookItem } from 'components/views/BookItem'
 import { Header } from 'components/views/Header'
+import { SelectInput } from 'components/views/SelectInput'
 import { BooksViewEl, LinkEl, LoaderContainerEl } from './style'
 
 export const Books = () => {
-  const [state, fetchBooks] = useFetch()
+  const [books, fetchBooks] = useFetch()
+  const [categories, fetchCategories] = useFetch()
 
   useEffect(
     function () {
       fetchBooks({
         url: 'http://18.130.120.189/api/books',
         method: 'GET',
-      })
+      }),
+        fetchCategories({
+          url: 'http://18.130.120.189/api/categories',
+          method: 'GET',
+        })
     },
-    [fetchBooks]
+    [fetchBooks, fetchCategories]
   )
 
-  if (state.isLoading) {
+  if (books.isLoading || categories.isLoading) {
     return (
       <LoaderContainerEl>
         <Loader
@@ -32,19 +38,33 @@ export const Books = () => {
     )
   }
 
-  if (state.isFailed) {
+  if (books.isFailed || categories.isFailed) {
     return <div>Error. Vuelve a intentarlo...</div>
   }
 
-  if (state.isSuccess) {
-    const { data } = state
-    const books = data
+  if (books.isSuccess || categories.isSuccess) {
+    const booksData = books.data
+    const categoriesData = categories.data
+    console.log({ categoriesData })
+    console.log({ booksData })
+
+    const categoryOptions = categoriesData.map((category) => {
+      return {
+        value: `${category.name}`, label: `${category.name}`, id: `${category.id}`
+      }
+    })
+
     return (
       <>
         <Header isPrivate />
         <BooksViewEl>
-          {books.map((book) => (
+          <SelectInput
+            onChange={(value) => console.log(value)}
+            options={categoryOptions}
+          />
+          {booksData.map((book) => (
             <LinkEl
+              key={book.id}
               to={{
                 pathname: `/books/:${book.id}`,
                 query: {
