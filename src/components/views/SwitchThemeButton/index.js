@@ -1,5 +1,6 @@
-import React from 'react'
 import { SwitchEl, SwitchLabelEl, SwitchWrapperEl } from './style'
+import React from 'react'
+
 import { useTheme } from 'contexts/themeToggleContext'
 
 export const SwitchThemeButton = () => {
