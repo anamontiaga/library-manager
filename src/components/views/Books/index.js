@@ -55,18 +55,24 @@ export const Books = () => {
       }
     })
 
-    const filteredBooks = selectedCategories?.map(selectedCategory => 
-      booksData.filter(book => book.categories.every(category => category.name === selectedCategory.value)));
+    const filteredBooks = selectedCategories?.map((selectedCategory) =>
+      booksData.filter((book) =>
+        book.categories.every((category) => category.name === selectedCategory.value)
+      )
+    )
 
     const concatBookArrayByCategory = []
-    const booksFilteredByCategory = concatBookArrayByCategory.concat.apply(concatBookArrayByCategory, filteredBooks)
+    const booksFilteredByCategory = concatBookArrayByCategory.concat.apply(
+      concatBookArrayByCategory,
+      filteredBooks
+    )
 
     const onlyUnique = (value, index, self) => {
-      return self.indexOf(value) === index;
+      return self.indexOf(value) === index
     }
-  
-    const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique);
-    
+
+    const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique)
+
     return (
       <>
         <Header isPrivate />

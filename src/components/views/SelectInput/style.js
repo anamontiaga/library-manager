@@ -43,11 +43,7 @@ export const customStyles = {
     paddingRight: '16px',
     margin: 0,
     transform:
-      menuIsOpen && hasValue
-        ? 'rotate(180deg)'
-        : menuIsOpen
-        ? 'rotate(180deg)'
-        : '',
+      menuIsOpen && hasValue ? 'rotate(180deg)' : menuIsOpen ? 'rotate(180deg)' : '',
     transition: 'transform 0.3s ease-out',
   }),
   input: (styles) => ({
@@ -66,7 +62,6 @@ export const customStyles = {
     padding: '0 0 0 10px',
     width: '97%',
     left: '1.5%',
-
   }),
   option: (styles, { isDisabled, isSelected }) => ({
     ...styles,
