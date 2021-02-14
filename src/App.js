@@ -6,6 +6,7 @@ import { AuthContextProvider } from './contexts/authContext'
 import {
   BOOKS,
   BOOK_DETAIL,
+  BOOK_DELETE,
   BOOK_CREATE,
   CATEGORIES,
   HOME,
@@ -13,6 +14,7 @@ import {
 } from './config/router/paths'
 import { Books } from './screens/Books'
 import { BookDetail } from './screens/BookDetail'
+import { BookDelete } from './screens/BookDelete'
 import { BookCreate } from './screens/BookCreate'
 import { Categories } from './components/Categories'
 import { Home } from './screens/Home'
@@ -33,6 +35,7 @@ function App() {
             <PrivateRoute path={CATEGORIES} component={Categories} exact />
             <PrivateRoute path={BOOK_CREATE} component={BookCreate} exact />
             <PrivateRoute path={BOOK_DETAIL} component={BookDetail} exact />
+            <PrivateRoute path={BOOK_DELETE} component={BookDelete} exact />
           </Switch>
         </Router>
       </AuthContextProvider>

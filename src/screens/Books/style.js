@@ -1,6 +1,6 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from 'styled-theming'
-import { Link } from 'react-router-dom'
 
 const containerBackground = theme('mode', {
   light: 'white',

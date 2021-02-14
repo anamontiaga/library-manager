@@ -1,14 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
 import { Header } from 'components/Header'
-import { BookDetailViewEl, BookImageEl, BookTitleEl, CardEl } from './style'
+import { SecondaryButton } from 'components/SecondaryButton'
+import { BookDetailViewEl, BookImageEl, BookTitleEl, CardEl, LinkEl } from './style'
 
-export const BookDetail = ({ match, location }) => {
+export const BookDetail = ({ location }) => {
   const {
-    params: { id },
-  } = match
-  const {
-    query: { title, image },
+    query: { title, id, image },
   } = location
 
   return (
@@ -16,8 +13,20 @@ export const BookDetail = ({ match, location }) => {
       <Header isPrivate />
       <BookDetailViewEl>
         <CardEl>
-          <BookTitleEl>{title}</BookTitleEl>
-          <BookImageEl src={image} />
+          <div>
+            <BookTitleEl>{title}</BookTitleEl>
+            <BookImageEl src={image} />
+          </div>
+          <LinkEl
+            to={{
+              pathname: `/books/:${id}/delete`,
+              query: {
+                id: `${id}`,
+              },
+            }}
+          >
+            <SecondaryButton alt='Eliminar' label='Eliminar' small />
+          </LinkEl>
         </CardEl>
       </BookDetailViewEl>
     </>

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from 'styled-theming'
 import { Colors } from 'styles/colors'
@@ -21,6 +22,9 @@ const textColor = theme('mode', {
 export const CardEl = styled.div`
   border: ${cardBorder};
   border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 20px;
 `
 
@@ -40,4 +44,8 @@ export const BookTitleEl = styled.p`
   font-size: 16px;
   margin: 0;
   margin-bottom: 20px;
+`
+
+export const LinkEl = styled(Link)`
+  text-decoration: none;
 `
