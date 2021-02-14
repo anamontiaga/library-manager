@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
-import blobToBase64 from 'utils/base64'
+import { convertBase64 } from 'utils/base64'
 import { Header } from 'components/Header'
 import { MainButton } from 'components/MainButton'
 import {
@@ -19,20 +19,20 @@ import {
 export const BookCreate = () => {
   const [state, postBook] = useFetch()
   const [initialised, setInitialised] = useState(false)
-  const [bookImage, setBookImage] = useState('')
+  const [baseImage, setBaseImage] = useState('')
 
   const { register, handleSubmit, errors } = useForm()
 
   useEffect(() => setInitialised(true))
 
-  const handleImage = (event) => {
-    setBookImage(URL.createObjectURL(event.target.files[0]))
+  const uploadImage = async (e) => {
+    const file = e.target.files[0]
+    const base64 = await convertBase64(file)
+    setBaseImage(base64)
   }
 
   const onSubmit = (data) => {
-    const baseImage = blobToBase64(bookImage)
-    const dataToSend = { ...data, image: baseImage }
-    console.log({ dataToSend })
+    const dataToSend = { ...data, ...data, base64Image: baseImage }
     postBook({
       url: 'http://18.130.120.189/api/books',
       method: 'POST',
@@ -58,12 +58,11 @@ export const BookCreate = () => {
                 name="image"
                 type="file"
                 id="file-input"
-                ref={register}
-                onChange={handleImage}
+                onChange={(e) => { uploadImage(e)}}
               />
               <AddImageContainerEl>
                 <LabelEl htmlFor="file-input">Añadir portada</LabelEl>
-                <ImageEl src={bookImage} />
+                <ImageEl src={baseImage} />
               </AddImageContainerEl>
             </div>
             <MainButton type="submit" label="Guardar" />

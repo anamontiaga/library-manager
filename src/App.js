@@ -31,8 +31,8 @@ function App() {
             <PrivateRoute path={LOGOUT} component={Logout} exact />
             <PrivateRoute path={BOOKS} component={Books} exact />
             <PrivateRoute path={CATEGORIES} component={Categories} exact />
-            <PrivateRoute path={BOOK_DETAIL} component={BookDetail} exact />
             <PrivateRoute path={BOOK_CREATE} component={BookCreate} exact />
+            <PrivateRoute path={BOOK_DETAIL} component={BookDetail} exact />
           </Switch>
         </Router>
       </AuthContextProvider>

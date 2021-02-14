@@ -1,9 +1,14 @@
-export default function (blob) {
-  const reader = new FileReader()
-  reader.readAsDataURL(blob)
-  return new Promise((resolve) => {
-    reader.onloadend = function () {
-      resolve(reader.result)
+export const convertBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const fileReader = new FileReader()
+    fileReader.readAsDataURL(file)
+
+    fileReader.onload = () => {
+      resolve(fileReader.result)
+    }
+
+    fileReader.onerror = (error) => {
+      reject(error)
     }
   })
 }
