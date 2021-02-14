@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
+import { BOOKS } from 'config/router/paths'
 import { convertBase64 } from 'utils/base64'
 import { Header } from 'components/Header'
 import { MainButton } from 'components/MainButton'
@@ -20,6 +22,7 @@ export const BookCreate = () => {
   const [state, postBook] = useFetch()
   const [initialised, setInitialised] = useState(false)
   const [baseImage, setBaseImage] = useState('')
+  const history = useHistory()
 
   const { register, handleSubmit, errors } = useForm()
 
@@ -38,6 +41,7 @@ export const BookCreate = () => {
       method: 'POST',
       body: JSON.stringify(dataToSend),
     })
+    history.push(BOOKS)
   }
 
   const startFormAnimation = useSpring({
@@ -58,7 +62,9 @@ export const BookCreate = () => {
                 name="image"
                 type="file"
                 id="file-input"
-                onChange={(e) => { uploadImage(e)}}
+                onChange={(e) => {
+                  uploadImage(e)
+                }}
               />
               <AddImageContainerEl>
                 <LabelEl htmlFor="file-input">Añadir portada</LabelEl>
