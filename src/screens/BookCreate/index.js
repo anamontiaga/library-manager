@@ -15,6 +15,7 @@ import {
   FormContainerEl,
   ImageEl,
   InputFileEl,
+  InputTitleEl,
   LabelEl,
 } from './style'
 
@@ -56,7 +57,7 @@ export const BookCreate = () => {
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit(onSubmit)}>
             <div style={{ width: '170px' }}>
-              <input name="title" ref={register({ required: true })} />
+              <InputTitleEl name="title" ref={register({ required: true })} />
               {errors.title && <ErrorEl>This field is required</ErrorEl>}
               <InputFileEl
                 name="image"
@@ -67,7 +68,7 @@ export const BookCreate = () => {
                 }}
               />
               <AddImageContainerEl>
-                <LabelEl htmlFor="file-input">Añadir portada</LabelEl>
+                <LabelEl htmlFor="file-input">AÑADIR PORTADA</LabelEl>
                 <ImageEl src={baseImage} />
               </AddImageContainerEl>
             </div>

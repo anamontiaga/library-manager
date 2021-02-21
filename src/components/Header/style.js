@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from 'styled-theming'
-import { Link } from 'react-router-dom'
+import { isTablet, isDesktop } from 'utils/mediaqueries'
 import { Colors } from 'styles/colors'
 import { Fonts } from 'styles/fonts'
-import { isTablet, isDesktop } from 'utils/mediaqueries'
 
 const containerBackground = theme('mode', {
   light: 'white',

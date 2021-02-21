@@ -24,6 +24,11 @@ const inputFileTextColor = theme('mode', {
   dark: `${Colors.yellow}`,
 })
 
+const inputBorder = theme('mode', {
+  light: `2px solid ${Colors.green}`,
+  dark: 'none',
+})
+
 export const AddImageContainerEl = styled.div`
   align-items: flex-start;
   display: flex;
@@ -62,6 +67,8 @@ export const FormEl = styled.form`
 export const FormContainerEl = styled.div`
   display: flex;
   flex-direction: column;
+  border: 2px solid red;
+  width: 300px;
 `
 
 export const ImageEl = styled.img`
@@ -75,6 +82,27 @@ export const InputFileEl = styled.input`
   position: absolute;
   width: 0.1px;
   z-index: -1;
+`
+
+export const InputTitleEl = styled.input`
+  border: ${inputBorder};
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: ${Colors.green};
+  cursor: pointer;
+  color: black;
+  height: 56px;
+  font-family: ${Fonts.body.regular};
+  font-size: 18px;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 8px 8px 16px;
+  width: 215px;
+  :focus {
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, ${Colors.yellow}, ${Colors.green});
+    outline: none;
+  }
 `
 
 export const LabelEl = styled.label`

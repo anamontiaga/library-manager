@@ -8,7 +8,9 @@ import { ContainerEl } from './style'
 
 export const BookDelete = ({ location }) => {
   const [state, deleteBook] = useFetch()
-  const { query: { id } } = location
+  const {
+    query: { id },
+  } = location
   const history = useHistory()
 
   const onDeleteBook = () => {
@@ -16,7 +18,7 @@ export const BookDelete = ({ location }) => {
     deleteBook({
       url: `http://18.130.120.189/api/books/${id}`,
       method: 'DELETE',
-      body: raw
+      body: raw,
     })
     history.push(BOOKS)
   }
@@ -26,14 +28,14 @@ export const BookDelete = ({ location }) => {
       <Header isPrivate />
       <p style={{ color: 'red' }}>¿Estás seguro de que quieres borrar el libro?</p>
       <SecondaryButton
-        alt='Si, sestoy seguro!'
-        label='Si, sestoy seguro!'
+        alt="Si, sestoy seguro!"
+        label="Si, sestoy seguro!"
         onClick={onDeleteBook}
-        small />
+        small
+      />
       {state.isLoading && <div>Deleting book</div>}
       {state.isFailed && <div>Error deleting book</div>}
       {state.isSuccess && <div>Success deleting book</div>}
     </ContainerEl>
   )
 }
-

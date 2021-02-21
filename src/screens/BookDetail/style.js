@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import theme from 'styled-theming'
+import { isTablet } from 'utils/mediaqueries'
 import { Colors } from 'styles/colors'
 import { Fonts } from 'styles/fonts'
 
@@ -19,6 +20,29 @@ const textColor = theme('mode', {
   dark: 'white',
 })
 
+export const BookDetailViewEl = styled.div`
+  background: ${containerBackground};
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  padding: 20px;
+`
+
+export const BookImageEl = styled.img`
+  height: 440px;
+`
+
+export const BookInfoContainerEl = styled.div`
+`
+
+export const BookTitleEl = styled.p`
+  color: ${textColor};
+  font-family: ${Fonts.body.semiBold};
+  font-size: 20px;
+  margin: 0;
+  margin-bottom: 20px;
+`
+
 export const CardEl = styled.div`
   border: ${cardBorder};
   border-radius: 8px;
@@ -26,24 +50,21 @@ export const CardEl = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 20px;
+  ${isTablet} {
+    height: 440px;
+    width: 600px;
+  }
 `
 
-export const BookDetailViewEl = styled.div`
-  background: ${containerBackground};
-  height: 100vh;
-  padding: 20px;
+export const CategoriesContainerEl = styled.div`
+
 `
 
-export const BookImageEl = styled.img`
-  height: 400px;
-`
-
-export const BookTitleEl = styled.p`
-  color: ${textColor};
-  font-family: ${Fonts.body.semiBold};
-  font-size: 16px;
-  margin: 0;
-  margin-bottom: 20px;
+export const FlexColumnEl = styled.div`
+  align-items: flex-end; 
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
 `
 
 export const LinkEl = styled(Link)`
