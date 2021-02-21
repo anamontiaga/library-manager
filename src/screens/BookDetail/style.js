@@ -20,6 +20,13 @@ const textColor = theme('mode', {
   dark: 'white',
 })
 
+export const ActionsEl = styled.div`
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`
+
 export const BookDetailViewEl = styled.div`
   background: ${containerBackground};
   display: flex;

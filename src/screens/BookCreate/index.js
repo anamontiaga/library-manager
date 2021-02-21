@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-// import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
 import { BOOKS } from 'config/router/paths'
 import { convertBase64 } from 'utils/base64'
@@ -20,10 +19,15 @@ import {
   SelectInputContainerEl,
 } from './style'
 
-export const BookCreate = () => {
+export const BookCreate = ({ location }) => {
+  const { query: { id } } = location
+
+  const isEdit = !!id
+
   const [state, postBook] = useFetch()
   const [bookCategories, setBookCategories] = useState([])
   const [categories, fetchCategories] = useFetch()
+  const [bookById, fetchBookById] = useFetch()
   const [baseImage, setBaseImage] = useState('')
   const history = useHistory()
 
@@ -41,16 +45,22 @@ export const BookCreate = () => {
       url: 'http://18.130.120.189/api/categories',
       method: 'GET',
     })
-  }, [fetchCategories])
+    fetchBookById({
+      url: `http://18.130.120.189/api/books/${id}`,
+      method: 'GET',
+    })
+  }, [fetchCategories, fetchBookById])
 
-  if (categories.isFailed) {
+
+  if (categories.isFailed || (isEdit && bookById.isFailed)) {
     return <div>Error. Vuelve a intentarlo...</div>
   }
 
-  if (categories.isSuccess) {
+  if (categories.isSuccess || (isEdit && bookById.isSuccess)) {
     const categoriesData = categories.data
+    const bookData = bookById.data
 
-    const categoryOptions = categoriesData.map((category) => {
+    const categoryOptions = categoriesData?.map((category) => {
       return {
         value: `${category.name}`,
         label: `${category.name}`,
@@ -79,50 +89,48 @@ export const BookCreate = () => {
       history.push(BOOKS)
     }
 
-    // const startFormAnimation = useSpring({
-    //   transform: initialised ? 'translateY(0)' : 'translateY(100vh)',
-    //   transition: '0.8s',
-    // })
-
     return (
       <ContainerEl>
         <Header isPrivate />
-        {/* <animated.div style={startFormAnimation}> */}
 
-          <FormEl onSubmit={handleSubmit(onSubmit)}>
-          <div style={{ width: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-              <InputTitleEl name="title" ref={register({ required: true })} />
-              {errors.title && <ErrorEl>This field is required</ErrorEl>}
-              <InputFileEl
-                name="image"
-                type="file"
-                id="file-input"
-                onChange={(e) => {
-                  uploadImage(e)
-                }}
-              />
-             <SelectInputContainerEl>
+        <FormEl onSubmit={handleSubmit(onSubmit)}>
+          <div
+            style={{
+              width: '600px',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <InputTitleEl name="title" ref={register({ required: true })} value={isEdit && bookData && bookData.title} />
+            {errors.title && <ErrorEl>This field is required</ErrorEl>}
+            <InputFileEl
+              name="image"
+              type="file"
+              id="file-input"
+              onChange={(e) => {
+                uploadImage(e)
+              }}
+            />
+            <SelectInputContainerEl>
               <SelectInput
                 onChange={(category) => {
                   setBookCategories(category)
                 }}
                 options={categoryOptions}
-              />  
-             </SelectInputContainerEl>
-              <AddImageContainerEl>
-                <LabelEl htmlFor="file-input">AÑADIR PORTADA</LabelEl>
-                <ImageEl src={baseImage} />
-              </AddImageContainerEl>
-             
-            <MainButton type="submit" label="Guardar" />
-            </div>
-          </FormEl>
-          
-          {state.isLoading && <div>Creating book</div>}
-          {state.isFailed && <div>Error creating book</div>}
-          {state.isSuccess && <div>Success creating book</div>}
-
-        {/* </animated.div> */}
+              // defaultValue={isEdit && categoryOptions[0]}
+              />
+            </SelectInputContainerEl>
+            <AddImageContainerEl>
+              <LabelEl htmlFor="file-input">{isEdit ? 'EDITAR PORTADA' : 'AÑADIR PORTADA'}</LabelEl>
+              <ImageEl src={isEdit && bookData ? bookData.image : baseImage} />
+            </AddImageContainerEl>
+            <MainButton type="submit" label={isEdit ? 'Editar' : 'Guardar'} />
+          </div>
+        </FormEl>
+        {state.isLoading && <div>Creating book</div>}
+        {state.isFailed && <div>Error creating book</div>}
+        {state.isSuccess && <div>Success creating book</div>}
       </ContainerEl>
     )
   }

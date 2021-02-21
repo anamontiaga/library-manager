@@ -3,6 +3,7 @@ import { Header } from 'components/Header'
 import { SecondaryButton } from 'components/SecondaryButton'
 import { Tag } from 'components/Tag'
 import {
+  ActionsEl,
   BookDetailViewEl,
   BookImageEl,
   BookInfoContainerEl,
@@ -27,7 +28,9 @@ export const BookDetail = ({ location }) => {
             <BookImageEl src={image} />
           </div>
           <FlexColumnEl>
+            <ActionsEl>
             <LinkEl
+              key={id}
               to={{
                 pathname: `/books/:${id}/delete`,
                 query: {
@@ -37,6 +40,19 @@ export const BookDetail = ({ location }) => {
             >
               <SecondaryButton alt="Eliminar" label="Eliminar" small />
             </LinkEl>
+
+            <LinkEl
+              key={id}
+              to={{
+                pathname: `/books/:${id}/edit`,
+                query: {
+                  id: `${id}`,
+                },
+              }}
+            >
+              <SecondaryButton alt="Editar" label="Editar" small />
+            </LinkEl>
+            </ActionsEl>
             <BookInfoContainerEl>
               <BookTitleEl>{title}</BookTitleEl>
               <CategoriesContainerEl>

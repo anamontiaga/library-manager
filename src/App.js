@@ -8,6 +8,7 @@ import {
   BOOK_DETAIL,
   BOOK_DELETE,
   BOOK_CREATE,
+  BOOK_EDIT,
   CATEGORIES,
   HOME,
   LOGOUT,
@@ -36,6 +37,7 @@ function App() {
             <PrivateRoute path={BOOK_CREATE} component={BookCreate} exact />
             <PrivateRoute path={BOOK_DETAIL} component={BookDetail} exact />
             <PrivateRoute path={BOOK_DELETE} component={BookDelete} exact />
+            <PrivateRoute path={BOOK_EDIT} component={BookCreate} exact />
           </Switch>
         </Router>
       </AuthContextProvider>
