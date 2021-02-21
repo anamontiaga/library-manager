@@ -29,29 +29,29 @@ export const BookDetail = ({ location }) => {
           </div>
           <FlexColumnEl>
             <ActionsEl>
-            <LinkEl
-              key={id}
-              to={{
-                pathname: `/books/:${id}/delete`,
-                query: {
-                  id: `${id}`,
-                },
-              }}
-            >
-              <SecondaryButton alt="Eliminar" label="Eliminar" small />
-            </LinkEl>
+              <LinkEl
+                key={id}
+                to={{
+                  pathname: `/books/:${id}/delete`,
+                  query: {
+                    id: `${id}`,
+                  },
+                }}
+              >
+                <SecondaryButton alt="Eliminar" label="Eliminar" small />
+              </LinkEl>
 
-            <LinkEl
-              key={id}
-              to={{
-                pathname: `/books/:${id}/edit`,
-                query: {
-                  id: `${id}`,
-                },
-              }}
-            >
-              <SecondaryButton alt="Editar" label="Editar" small />
-            </LinkEl>
+              <LinkEl
+                key={id}
+                to={{
+                  pathname: `/books/:${id}/edit`,
+                  query: {
+                    id: `${id}`,
+                  },
+                }}
+              >
+                <SecondaryButton alt="Editar" label="Editar" small />
+              </LinkEl>
             </ActionsEl>
             <BookInfoContainerEl>
               <BookTitleEl>{title}</BookTitleEl>

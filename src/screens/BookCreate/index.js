@@ -20,7 +20,9 @@ import {
 } from './style'
 
 export const BookCreate = ({ location }) => {
-  const { query: { id } } = location
+  const {
+    query: { id },
+  } = location
 
   const isEdit = !!id
 
@@ -50,7 +52,6 @@ export const BookCreate = ({ location }) => {
       method: 'GET',
     })
   }, [fetchCategories, fetchBookById])
-
 
   if (categories.isFailed || (isEdit && bookById.isFailed)) {
     return <div>Error. Vuelve a intentarlo...</div>
@@ -102,7 +103,11 @@ export const BookCreate = ({ location }) => {
               alignItems: 'center',
             }}
           >
-            <InputTitleEl name="title" ref={register({ required: true })} value={isEdit && bookData && bookData.title} />
+            <InputTitleEl
+              name="title"
+              ref={register({ required: true })}
+              value={isEdit && bookData && bookData.title}
+            />
             {errors.title && <ErrorEl>This field is required</ErrorEl>}
             <InputFileEl
               name="image"
@@ -118,11 +123,13 @@ export const BookCreate = ({ location }) => {
                   setBookCategories(category)
                 }}
                 options={categoryOptions}
-              // defaultValue={isEdit && categoryOptions[0]}
+                // defaultValue={isEdit && categoryOptions[0]}
               />
             </SelectInputContainerEl>
             <AddImageContainerEl>
-              <LabelEl htmlFor="file-input">{isEdit ? 'EDITAR PORTADA' : 'AÑADIR PORTADA'}</LabelEl>
+              <LabelEl htmlFor="file-input">
+                {isEdit ? 'EDITAR PORTADA' : 'AÑADIR PORTADA'}
+              </LabelEl>
               <ImageEl src={isEdit && bookData ? bookData.image : baseImage} />
             </AddImageContainerEl>
             <MainButton type="submit" label={isEdit ? 'Editar' : 'Guardar'} />
