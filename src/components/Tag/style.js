@@ -10,7 +10,7 @@ const Categories = {
   Histórica: 'Histórica',
   Narrativa: 'Narrativa',
   NovelaFantástica: 'Novela fantástica',
-};
+}
 
 const LABEL_COLOR_CONTAINER = {
   [Categories.Aventuras]: `${Colors.green}`,
@@ -34,7 +34,7 @@ const BACKGROUND_COLOR_CONTAINER = {
 
 export const ContainerEl = styled.div`
   align-items: center;
-  background: ${props => (BACKGROUND_COLOR_CONTAINER[props.type])};
+  background: ${(props) => BACKGROUND_COLOR_CONTAINER[props.type]};
   border-radius: 2em;
   display: flex;
   justify-content: center;
@@ -43,7 +43,7 @@ export const ContainerEl = styled.div`
 `
 
 export const LabelEl = styled.p`
-  color: ${props => (LABEL_COLOR_CONTAINER[props.type])};
+  color: ${(props) => LABEL_COLOR_CONTAINER[props.type]};
   font-family: ${Fonts.body.regular};
   font-size: 12px;
 `

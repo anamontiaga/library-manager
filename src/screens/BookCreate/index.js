@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
-import { animated, useSpring } from 'react-spring'
+// import { animated, useSpring } from 'react-spring'
 import useFetch from 'utils/useFetch'
 import { BOOKS } from 'config/router/paths'
 import { convertBase64 } from 'utils/base64'
@@ -13,11 +13,11 @@ import {
   ContainerEl,
   ErrorEl,
   FormEl,
-  FormContainerEl,
   ImageEl,
   InputFileEl,
   InputTitleEl,
   LabelEl,
+  SelectInputContainerEl,
 } from './style'
 
 export const BookCreate = () => {
@@ -26,14 +26,14 @@ export const BookCreate = () => {
   const [categories, fetchCategories] = useFetch()
   const [baseImage, setBaseImage] = useState('')
   const history = useHistory()
+
   const { register, handleSubmit, errors } = useForm()
 
-
-  const categoriesToPost = bookCategories?.map(categoryToPost => {
+  const categoriesToPost = bookCategories?.map((categoryToPost) => {
     return {
       id: `${categoryToPost.id}`,
-      name: `${categoryToPost.label}`,    
-    } 
+      name: `${categoryToPost.label}`,
+    }
   })
 
   useEffect(() => {
@@ -58,34 +58,39 @@ export const BookCreate = () => {
       }
     })
 
-  const uploadImage = async (e) => {
-    const file = e.target.files[0]
-    const base64 = await convertBase64(file)
-    setBaseImage(base64)
-  }
+    const uploadImage = async (e) => {
+      const file = e.target.files[0]
+      const base64 = await convertBase64(file)
+      setBaseImage(base64)
+    }
 
-  const onSubmit = (data) => {
-    const dataToSend = { ...data, ...data, base64Image: baseImage, categories: categoriesToPost }
-    postBook({
-      url: 'http://18.130.120.189/api/books',
-      method: 'POST',
-      body: JSON.stringify(dataToSend),
-    })
-    history.push(BOOKS)
-  }
+    const onSubmit = (data) => {
+      const dataToSend = {
+        ...data,
+        ...data,
+        base64Image: baseImage,
+        categories: categoriesToPost,
+      }
+      postBook({
+        url: 'http://18.130.120.189/api/books',
+        method: 'POST',
+        body: JSON.stringify(dataToSend),
+      })
+      history.push(BOOKS)
+    }
 
-  // const startFormAnimation = useSpring({
-  //   transform: initialised ? 'translateY(0)' : 'translateY(100vh)',
-  //   transition: '0.8s',
-  // })
+    // const startFormAnimation = useSpring({
+    //   transform: initialised ? 'translateY(0)' : 'translateY(100vh)',
+    //   transition: '0.8s',
+    // })
 
-  return (
-    <ContainerEl>
-      <Header isPrivate />
-      {/* <animated.div style={startFormAnimation}> */}
-        <FormContainerEl>
+    return (
+      <ContainerEl>
+        <Header isPrivate />
+        {/* <animated.div style={startFormAnimation}> */}
+
           <FormEl onSubmit={handleSubmit(onSubmit)}>
-            <div style={{ width: '170px' }}>
+          <div style={{ width: '600px', display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
               <InputTitleEl name="title" ref={register({ required: true })} />
               {errors.title && <ErrorEl>This field is required</ErrorEl>}
               <InputFileEl
@@ -96,27 +101,30 @@ export const BookCreate = () => {
                   uploadImage(e)
                 }}
               />
+             <SelectInputContainerEl>
               <SelectInput
                 onChange={(category) => {
                   setBookCategories(category)
                 }}
                 options={categoryOptions}
-              />
+              />  
+             </SelectInputContainerEl>
               <AddImageContainerEl>
                 <LabelEl htmlFor="file-input">AÑADIR PORTADA</LabelEl>
                 <ImageEl src={baseImage} />
               </AddImageContainerEl>
-            </div>
+             
             <MainButton type="submit" label="Guardar" />
+            </div>
           </FormEl>
+          
           {state.isLoading && <div>Creating book</div>}
           {state.isFailed && <div>Error creating book</div>}
           {state.isSuccess && <div>Success creating book</div>}
-        </FormContainerEl>
-      {/* </animated.div> */}
-    </ContainerEl>
-  )
-}
-return null
-}
 
+        {/* </animated.div> */}
+      </ContainerEl>
+    )
+  }
+  return null
+}

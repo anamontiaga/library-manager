@@ -10,7 +10,7 @@ import {
   CardEl,
   CategoriesContainerEl,
   FlexColumnEl,
-  LinkEl
+  LinkEl,
 } from './style'
 
 export const BookDetail = ({ location }) => {
@@ -40,9 +40,9 @@ export const BookDetail = ({ location }) => {
             <BookInfoContainerEl>
               <BookTitleEl>{title}</BookTitleEl>
               <CategoriesContainerEl>
-                {categories?.map((category) =>
-                  <Tag label={`${category.name}`} type={`${category.name}`}/>
-                )}
+                {categories?.map((category) => (
+                  <Tag label={`${category.name}`} type={`${category.name}`} />
+                ))}
               </CategoriesContainerEl>
             </BookInfoContainerEl>
           </FlexColumnEl>

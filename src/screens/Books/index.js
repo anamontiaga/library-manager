@@ -74,7 +74,8 @@ export const Books = () => {
 
     const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique)
 
-    const booksToFilter = uniqueFilteredBooks.length === 0 ? booksData : uniqueFilteredBooks
+    const booksToFilter =
+      uniqueFilteredBooks.length === 0 ? booksData : uniqueFilteredBooks
 
     return (
       <BackgroundEl>

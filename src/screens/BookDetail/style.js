@@ -32,8 +32,7 @@ export const BookImageEl = styled.img`
   height: 440px;
 `
 
-export const BookInfoContainerEl = styled.div`
-`
+export const BookInfoContainerEl = styled.div``
 
 export const BookTitleEl = styled.p`
   color: ${textColor};
@@ -56,13 +55,11 @@ export const CardEl = styled.div`
   }
 `
 
-export const CategoriesContainerEl = styled.div`
-
-`
+export const CategoriesContainerEl = styled.div``
 
 export const FlexColumnEl = styled.div`
-  align-items: flex-end; 
-  display: flex; 
+  align-items: flex-end;
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
 `

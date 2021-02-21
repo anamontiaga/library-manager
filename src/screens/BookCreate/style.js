@@ -26,7 +26,7 @@ const inputFileTextColor = theme('mode', {
 
 const inputBorder = theme('mode', {
   light: `2px solid ${Colors.green}`,
-  dark: 'none',
+  dark: `2px solid ${Colors.green}`,
 })
 
 export const AddImageContainerEl = styled.div`
@@ -56,7 +56,7 @@ export const FormEl = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 140px;
+  height: 240px;
   justify-content: space-between;
   margin-top: 30%;
   ${isTablet} {
@@ -64,15 +64,9 @@ export const FormEl = styled.form`
   }
 `
 
-export const FormContainerEl = styled.div`
-  display: flex;
-  flex-direction: column;
-  border: 2px solid red;
-  width: 300px;
-`
-
 export const ImageEl = styled.img`
-  height: 80px;
+  height: 100px;
+  margin-left: 90px;
 `
 
 export const InputFileEl = styled.input`
@@ -96,7 +90,7 @@ export const InputTitleEl = styled.input`
   font-size: 18px;
   transition: all 0.2s ease-in-out;
   padding: 8px 8px 8px 16px;
-  width: 215px;
+  width: 300px;
   :focus {
     border-image-slice: 1;
     border-width: 3px;
@@ -114,7 +108,11 @@ export const LabelEl = styled.label`
   cursor: pointer;
   display: inline-flex;
   font-family: ${Fonts.body.semiBold};
-  font-size: 8px;
+  font-size: 12px;
   text-transform: capitalize;
   padding: 10px 12px;
+`
+export const SelectInputContainerEl = styled.div`
+  margin-top: 20px;
+  width: 320px;
 `

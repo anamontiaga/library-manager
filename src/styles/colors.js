@@ -8,5 +8,5 @@ export const Colors = {
   blue: '#005dff',
   blueOpacity: '#005dff57',
   red: '#ff0000',
-  redOpacity: '#ff000057'
+  redOpacity: '#ff000057',
 }
