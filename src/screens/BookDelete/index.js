@@ -8,6 +8,7 @@ import { ContainerEl } from './style'
 
 export const BookDelete = ({ location }) => {
   const [state, deleteBook] = useFetch()
+
   const {
     query: { id },
   } = location

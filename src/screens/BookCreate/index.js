@@ -7,6 +7,7 @@ import { BOOKS } from 'config/router/paths'
 import { convertBase64 } from 'utils/base64'
 import { Header } from 'components/Header'
 import { MainButton } from 'components/MainButton'
+import { SelectInput } from 'components/SelectInput'
 import {
   AddImageContainerEl,
   ContainerEl,
@@ -21,13 +22,41 @@ import {
 
 export const BookCreate = () => {
   const [state, postBook] = useFetch()
-  const [initialised, setInitialised] = useState(false)
+  const [bookCategories, setBookCategories] = useState([])
+  const [categories, fetchCategories] = useFetch()
   const [baseImage, setBaseImage] = useState('')
   const history = useHistory()
-
   const { register, handleSubmit, errors } = useForm()
 
-  useEffect(() => setInitialised(true))
+
+  const categoriesToPost = bookCategories?.map(categoryToPost => {
+    return {
+      id: `${categoryToPost.id}`,
+      name: `${categoryToPost.label}`,    
+    } 
+  })
+
+  useEffect(() => {
+    fetchCategories({
+      url: 'http://18.130.120.189/api/categories',
+      method: 'GET',
+    })
+  }, [fetchCategories])
+
+  if (categories.isFailed) {
+    return <div>Error. Vuelve a intentarlo...</div>
+  }
+
+  if (categories.isSuccess) {
+    const categoriesData = categories.data
+
+    const categoryOptions = categoriesData.map((category) => {
+      return {
+        value: `${category.name}`,
+        label: `${category.name}`,
+        id: `${category.id}`,
+      }
+    })
 
   const uploadImage = async (e) => {
     const file = e.target.files[0]
@@ -36,7 +65,7 @@ export const BookCreate = () => {
   }
 
   const onSubmit = (data) => {
-    const dataToSend = { ...data, ...data, base64Image: baseImage }
+    const dataToSend = { ...data, ...data, base64Image: baseImage, categories: categoriesToPost }
     postBook({
       url: 'http://18.130.120.189/api/books',
       method: 'POST',
@@ -45,15 +74,15 @@ export const BookCreate = () => {
     history.push(BOOKS)
   }
 
-  const startFormAnimation = useSpring({
-    transform: initialised ? 'translateY(0)' : 'translateY(100vh)',
-    transition: '0.8s',
-  })
+  // const startFormAnimation = useSpring({
+  //   transform: initialised ? 'translateY(0)' : 'translateY(100vh)',
+  //   transition: '0.8s',
+  // })
 
   return (
     <ContainerEl>
       <Header isPrivate />
-      <animated.div style={startFormAnimation}>
+      {/* <animated.div style={startFormAnimation}> */}
         <FormContainerEl>
           <FormEl onSubmit={handleSubmit(onSubmit)}>
             <div style={{ width: '170px' }}>
@@ -67,6 +96,12 @@ export const BookCreate = () => {
                   uploadImage(e)
                 }}
               />
+              <SelectInput
+                onChange={(category) => {
+                  setBookCategories(category)
+                }}
+                options={categoryOptions}
+              />
               <AddImageContainerEl>
                 <LabelEl htmlFor="file-input">AÑADIR PORTADA</LabelEl>
                 <ImageEl src={baseImage} />
@@ -78,7 +113,10 @@ export const BookCreate = () => {
           {state.isFailed && <div>Error creating book</div>}
           {state.isSuccess && <div>Success creating book</div>}
         </FormContainerEl>
-      </animated.div>
+      {/* </animated.div> */}
     </ContainerEl>
   )
 }
+return null
+}
+

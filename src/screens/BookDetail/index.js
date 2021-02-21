@@ -41,7 +41,7 @@ export const BookDetail = ({ location }) => {
               <BookTitleEl>{title}</BookTitleEl>
               <CategoriesContainerEl>
                 {categories?.map((category) =>
-                  <Tag label={`${category.name}`} />
+                  <Tag label={`${category.name}`} type={`${category.name}`}/>
                 )}
               </CategoriesContainerEl>
             </BookInfoContainerEl>

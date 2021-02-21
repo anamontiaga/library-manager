@@ -74,6 +74,8 @@ export const Books = () => {
 
     const uniqueFilteredBooks = booksFilteredByCategory.filter(onlyUnique)
 
+    const booksToFilter = uniqueFilteredBooks.length === 0 ? booksData : uniqueFilteredBooks
+
     return (
       <BackgroundEl>
         <Header isPrivate />
@@ -82,7 +84,7 @@ export const Books = () => {
             onChange={(value) => setSelectedCategories(value)}
             options={categoryOptions}
           />
-          {uniqueFilteredBooks.map((book) => (
+          {booksToFilter.map((book) => (
             <LinkEl
               key={book.id}
               to={{
