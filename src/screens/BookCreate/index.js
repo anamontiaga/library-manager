@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import { useForm } from 'react-hook-form'
 import useFetch from 'utils/useFetch'
 import { BOOKS } from 'config/router/paths'
@@ -33,7 +33,7 @@ export const BookCreate = ({ location }) => {
   const [categories, fetchCategories] = useFetch()
   const [bookById, fetchBookById] = useFetch()
   const [baseImage, setBaseImage] = useState('')
-  const history = useHistory()
+  const history = createBrowserHistory({ forceRefresh: true })
 
   const { register, handleSubmit, errors } = useForm()
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
 import useFetch from 'utils/useFetch'
 import { BOOKS } from 'config/router/paths'
 import { Header } from 'components/Header'
@@ -12,7 +12,8 @@ export const BookDelete = ({ location }) => {
   const {
     query: { id },
   } = location
-  const history = useHistory()
+  
+  const history = createBrowserHistory({ forceRefresh: true })
 
   const onDeleteBook = () => {
     const raw = ''
