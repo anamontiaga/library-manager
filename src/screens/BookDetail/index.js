@@ -5,6 +5,7 @@ import { Tag } from 'components/Tag'
 import {
   ActionsEl,
   BookDetailViewEl,
+  BookDescriptionEl,
   BookImageEl,
   BookInfoContainerEl,
   BookTitleEl,
@@ -15,8 +16,9 @@ import {
 } from './style'
 
 export const BookDetail = ({ location }) => {
+  console.log({location})
   const {
-    query: { categories, id, image, title },
+    query: { categories, description,  id, image, title },
   } = location
 
   return (
@@ -40,7 +42,6 @@ export const BookDetail = ({ location }) => {
               >
                 <SecondaryButton alt="Eliminar" label="Eliminar" small />
               </LinkEl>
-
               <LinkEl
                 key={id}
                 to={{
@@ -53,6 +54,7 @@ export const BookDetail = ({ location }) => {
                 <SecondaryButton alt="Editar" label="Editar" small />
               </LinkEl>
             </ActionsEl>
+            <BookDescriptionEl>{description}</BookDescriptionEl>
             <BookInfoContainerEl>
               <BookTitleEl>{title}</BookTitleEl>
               <CategoriesContainerEl>

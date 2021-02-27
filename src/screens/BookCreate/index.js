@@ -109,6 +109,10 @@ export const BookCreate = ({ location }) => {
               value={isEdit && bookData && bookData.title}
             />
             {errors.title && <ErrorEl>This field is required</ErrorEl>}
+            <textarea
+              name="description"
+              ref={register({ required: true })}
+              value={isEdit && bookData && bookData.description}/>
             <InputFileEl
               name="image"
               type="file"
@@ -123,7 +127,7 @@ export const BookCreate = ({ location }) => {
                   setBookCategories(category)
                 }}
                 options={categoryOptions}
-                // defaultValue={isEdit && categoryOptions[0]}
+              // defaultValue={isEdit && categoryOptions[0]}
               />
             </SelectInputContainerEl>
             <AddImageContainerEl>

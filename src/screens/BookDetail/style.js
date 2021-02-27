@@ -24,7 +24,7 @@ export const ActionsEl = styled.div`
   align-items: flex-end;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 10px;
 `
 
 export const BookDetailViewEl = styled.div`
@@ -34,6 +34,17 @@ export const BookDetailViewEl = styled.div`
   justify-content: center;
   padding: 20px;
 `
+
+export const BookDescriptionEl = styled.p`
+  color: ${textColor};
+  font-family: ${Fonts.body.regular};
+  font-size: 11px;
+  line-height: 1.5;
+  margin: 0;
+  text-align: justify;
+  margin-bottom: 20px;
+`
+
 
 export const BookImageEl = styled.img`
   height: 440px;
@@ -69,6 +80,7 @@ export const FlexColumnEl = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  margin-left: 30px;
 `
 
 export const LinkEl = styled(Link)`
