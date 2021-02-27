@@ -16,9 +16,9 @@ import {
 } from './style'
 
 export const BookDetail = ({ location }) => {
-  console.log({location})
+  console.log({ location })
   const {
-    query: { categories, description,  id, image, title },
+    query: { categories, description, id, image, title },
   } = location
 
   return (

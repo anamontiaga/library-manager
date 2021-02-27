@@ -85,23 +85,26 @@ export const Books = () => {
             onChange={(value) => setSelectedCategories(value)}
             options={categoryOptions}
           />
-          {booksToFilter.map((book) => console.log(book) || (
-            <LinkEl
-              key={book.id}
-              to={{
-                pathname: `/books/:${book.id}`,
-                query: {
-                  title: book.title,
-                  id: book.id,
-                  image: book.image,
-                  categories: book.categories,
-                  description: book.description
-                },
-              }}
-            >
-              <BookItem id={book.id} image={book.image} title={book.title} />
-            </LinkEl>
-          ))}
+          {booksToFilter.map(
+            (book) =>
+              console.log(book) || (
+                <LinkEl
+                  key={book.id}
+                  to={{
+                    pathname: `/books/:${book.id}`,
+                    query: {
+                      title: book.title,
+                      id: book.id,
+                      image: book.image,
+                      categories: book.categories,
+                      description: book.description,
+                    },
+                  }}
+                >
+                  <BookItem id={book.id} image={book.image} title={book.title} />
+                </LinkEl>
+              )
+          )}
         </BooksViewEl>
       </BackgroundEl>
     )

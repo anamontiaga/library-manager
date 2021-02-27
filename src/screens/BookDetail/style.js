@@ -45,7 +45,6 @@ export const BookDescriptionEl = styled.p`
   margin-bottom: 20px;
 `
 
-
 export const BookImageEl = styled.img`
   height: 440px;
 `
