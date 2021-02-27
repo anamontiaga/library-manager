@@ -61,7 +61,6 @@ export const FormEl = styled.form`
   margin-top: 20%;
   ${isTablet} {
     margin-top: 5%;
-
   }
 `
 
@@ -118,7 +117,7 @@ export const SelectInputContainerEl = styled.div`
   width: 320px;
 `
 export const TextAreaDescriptionEl = styled.textarea`
- border: ${inputBorder};
+  border: ${inputBorder};
   border-radius: 4px;
   box-sizing: border-box;
   caret-color: ${Colors.green};
@@ -137,4 +136,4 @@ export const TextAreaDescriptionEl = styled.textarea`
     border-image-source: linear-gradient(to left, ${Colors.yellow}, ${Colors.green});
     outline: none;
   }
-`;
+`
