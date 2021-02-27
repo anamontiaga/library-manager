@@ -41,7 +41,7 @@ export const ContainerEl = styled.div`
   background: ${containerBackground};
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
   width: auto;
 `
 
@@ -56,11 +56,12 @@ export const FormEl = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 240px;
   justify-content: space-between;
-  margin-top: 30%;
+  margin-bottom: 10%;
+  margin-top: 20%;
   ${isTablet} {
-    margin-top: 10%;
+    margin-top: 5%;
+
   }
 `
 
@@ -116,3 +117,24 @@ export const SelectInputContainerEl = styled.div`
   margin-top: 20px;
   width: 320px;
 `
+export const TextAreaDescriptionEl = styled.textarea`
+ border: ${inputBorder};
+  border-radius: 4px;
+  box-sizing: border-box;
+  caret-color: ${Colors.green};
+  cursor: pointer;
+  color: black;
+  height: 200px;
+  font-family: ${Fonts.body.regular};
+  font-size: 18px;
+  margin-top: 20px;
+  transition: all 0.2s ease-in-out;
+  padding: 8px 8px 8px 16px;
+  width: 300px;
+  :focus {
+    border-image-slice: 1;
+    border-width: 3px;
+    border-image-source: linear-gradient(to left, ${Colors.yellow}, ${Colors.green});
+    outline: none;
+  }
+`;

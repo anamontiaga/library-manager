@@ -25,14 +25,17 @@ export const ActionsEl = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin-bottom: 20px;
 `
 
 export const BookDetailViewEl = styled.div`
   background: ${containerBackground};
   display: flex;
-  height: 100vh;
+  min-height: 100vh;
+  /* height: 100vh; */
   justify-content: center;
   padding: 20px;
+  padding-bottom: auto;
 `
 
 export const BookDescriptionEl = styled.p`
@@ -49,7 +52,12 @@ export const BookImageEl = styled.img`
   height: 440px;
 `
 
-export const BookInfoContainerEl = styled.div``
+export const BookInfoContainerEl = styled.div`
+  align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+`
 
 export const BookTitleEl = styled.p`
   color: ${textColor};
@@ -67,7 +75,6 @@ export const CardEl = styled.div`
   justify-content: space-between;
   padding: 20px;
   ${isTablet} {
-    height: 440px;
     width: 600px;
   }
 `
@@ -75,10 +82,8 @@ export const CardEl = styled.div`
 export const CategoriesContainerEl = styled.div``
 
 export const FlexColumnEl = styled.div`
-  align-items: flex-end;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   margin-left: 30px;
 `
 

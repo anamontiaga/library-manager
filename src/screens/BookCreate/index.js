@@ -17,6 +17,7 @@ import {
   InputTitleEl,
   LabelEl,
   SelectInputContainerEl,
+  TextAreaDescriptionEl,
 } from './style'
 
 export const BookCreate = ({ location }) => {
@@ -27,6 +28,7 @@ export const BookCreate = ({ location }) => {
   const isEdit = !!id
 
   const [state, postBook] = useFetch()
+  const [editState, editBook] = useFetch()
   const [bookCategories, setBookCategories] = useState([])
   const [categories, fetchCategories] = useFetch()
   const [bookById, fetchBookById] = useFetch()
@@ -78,71 +80,81 @@ export const BookCreate = ({ location }) => {
     const onSubmit = (data) => {
       const dataToSend = {
         ...data,
-        ...data,
         base64Image: baseImage,
         categories: categoriesToPost,
       }
-      postBook({
-        url: 'http://18.130.120.189/api/books',
-        method: 'POST',
-        body: JSON.stringify(dataToSend),
-      })
+      isEdit &&
+        editBook({
+          url: `http://18.130.120.189/api/books/${id}`,
+          method: 'POST',
+          body: JSON.stringify(dataToSend),
+        })
+
+      !isEdit &&
+        postBook({
+          url: 'http://18.130.120.189/api/books',
+          method: 'POST',
+          body: JSON.stringify(dataToSend),
+        })
       history.push(BOOKS)
     }
 
     return (
       <ContainerEl>
         <Header isPrivate />
-
-        <FormEl onSubmit={handleSubmit(onSubmit)}>
-          <div
-            style={{
-              width: '600px',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-            }}
-          >
-            <InputTitleEl
-              name="title"
-              ref={register({ required: true })}
-              value={isEdit && bookData && bookData.title}
-            />
-            {errors.title && <ErrorEl>This field is required</ErrorEl>}
-            <textarea
-              name="description"
-              ref={register({ required: true })}
-              value={isEdit && bookData && bookData.description}
-            />
-            <InputFileEl
-              name="image"
-              type="file"
-              id="file-input"
-              onChange={(e) => {
-                uploadImage(e)
+        <div>
+          <FormEl onSubmit={handleSubmit(onSubmit)}>
+            <div
+              style={{
+                width: '600px',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
               }}
-            />
-            <SelectInputContainerEl>
-              <SelectInput
-                onChange={(category) => {
-                  setBookCategories(category)
-                }}
-                options={categoryOptions}
-                // defaultValue={isEdit && categoryOptions[0]}
+            >
+              <InputTitleEl
+                name="title"
+                ref={register({ required: true })}
+                value={isEdit && bookData && bookData.title}
               />
-            </SelectInputContainerEl>
-            <AddImageContainerEl>
-              <LabelEl htmlFor="file-input">
-                {isEdit ? 'EDITAR PORTADA' : 'AÑADIR PORTADA'}
-              </LabelEl>
-              <ImageEl src={isEdit && bookData ? bookData.image : baseImage} />
-            </AddImageContainerEl>
-            <MainButton type="submit" label={isEdit ? 'Editar' : 'Guardar'} />
-          </div>
-        </FormEl>
+              {errors.title && <ErrorEl>This field is required</ErrorEl>}
+              <TextAreaDescriptionEl
+                name="description"
+                ref={register({ required: true })}
+                value={isEdit && bookData && bookData.description} />
+              <InputFileEl
+                name="image"
+                type="file"
+                id="file-input"
+                onChange={(e) => {
+                  uploadImage(e)
+                }}
+              />
+              <SelectInputContainerEl>
+                <SelectInput
+                  onChange={(category) => {
+                    setBookCategories(category)
+                  }}
+                  options={categoryOptions}
+                // defaultValue={isEdit && categoryOptions[0]}
+                />
+              </SelectInputContainerEl>
+              <AddImageContainerEl>
+                <LabelEl htmlFor="file-input">
+                  {isEdit ? 'EDITAR PORTADA' : 'AÑADIR PORTADA'}
+                </LabelEl>
+                <ImageEl src={isEdit && bookData ? bookData.image : baseImage} />
+              </AddImageContainerEl>
+              <MainButton type="submit" label={isEdit ? 'Editar' : 'Guardar'} />
+            </div>
+          </FormEl>
+        </div>
         {state.isLoading && <div>Creating book</div>}
         {state.isFailed && <div>Error creating book</div>}
         {state.isSuccess && <div>Success creating book</div>}
+        {editState.isLoading && <div>Editing book</div>}
+        {editState.isFailed && <div>Error editing book</div>}
+        {editState.isSuccess && <div>Success editing book</div>}
       </ContainerEl>
     )
   }
