@@ -12,7 +12,7 @@ export const BookDelete = ({ location }) => {
   const {
     query: { id },
   } = location
-  
+
   const history = createBrowserHistory({ forceRefresh: true })
 
   const onDeleteBook = () => {

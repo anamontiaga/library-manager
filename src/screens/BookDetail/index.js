@@ -17,7 +17,9 @@ import {
 } from './style'
 
 export const BookDetail = ({ match }) => {
-  const { params: { id } } = match
+  const {
+    params: { id },
+  } = match
   const [bookById, fetchBookById] = useFetch()
 
   useEffect(() => {
@@ -33,7 +35,7 @@ export const BookDetail = ({ match }) => {
 
   if (bookById.isSuccess) {
     const bookData = bookById.data
-    
+
     return (
       <>
         <Header isPrivate />
