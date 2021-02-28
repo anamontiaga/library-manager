@@ -1,7 +1,4 @@
 
-
-![books](https://user-images.githubusercontent.com/51995866/109421250-d2b56e80-79d6-11eb-8d88-7caa3d7a56ef.png)
-
 # Library Manager
 
 ### `yarn start`
