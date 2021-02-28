@@ -113,7 +113,7 @@ export const BookCreate = ({ location }) => {
               }}
             >
               <InputTitleEl
-              id='title'
+                id="title"
                 name="title"
                 ref={register({ required: true })}
                 value={isEdit && bookData && bookData.title}
@@ -122,7 +122,7 @@ export const BookCreate = ({ location }) => {
               <TextAreaDescriptionEl
                 name="description"
                 ref={register({ required: true })}
-                value={isEdit && bookData && bookData.description || ''}
+                value={(isEdit && bookData && bookData.description) || ''}
               />
               <InputFileEl
                 name="image"
