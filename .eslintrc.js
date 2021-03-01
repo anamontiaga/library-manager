@@ -1,4 +1,4 @@
-{
+module.exports = { 
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -9,6 +9,11 @@
       "experimentalObjectRestSpread": true
     }
   },
+  "plugins": [
+    "react", 
+    "react-hooks",
+    "import"
+  ],
   "globals": {
     "window": true,
     "navigator": true,
@@ -26,31 +31,7 @@
     "beforeEach": true
   },
   "settings": {
-    "import/order": [
-      "error",
-      {
-        "groups": [
-          "builtin",
-          "external",
-          "internal",
-          "parent",
-          "sibling"
-        ],
-        "alphabetize": {
-          "order": "asc"
-        },
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "builtin",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": [
-          "builtin"
-        ]
-      }
-    ],
+    "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
     "import/resolver": {
       "node": {
         "paths": [
@@ -71,7 +52,21 @@
       {
         "props": false
       }
-    ]
+    ],
+    "import/order": ["warn", { 
+      "groups": ["builtin", "external", "internal", "parent", "sibling"], 
+      "alphabetize": {
+        "order": "asc"
+      },
+      "pathGroups": [
+        {
+          "pattern": "react",
+          "group": "builtin",
+          "position": "before"
+        }
+      ],
+      "pathGroupsExcludedImportTypes": ["builtin"]
+    }]
   },
   "overrides": []
 }
