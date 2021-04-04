@@ -1,8 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch } from 'react-router-dom'
-import PrivateRoute from './router/PrivateRoute'
-import PublicRoute from './router/PublicRoute'
-import { AuthContextProvider } from './contexts/authContext'
+import { Categories } from './components/Categories'
+import { Logout } from './components/Logout'
 import {
   BOOKS,
   BOOK_DETAIL,
@@ -13,14 +12,16 @@ import {
   HOME,
   LOGOUT,
 } from './config/router/paths'
-import { Books } from './screens/Books'
-import { BookDetail } from './screens/BookDetail'
-import { BookDelete } from './screens/BookDelete'
-import { BookCreate } from './screens/BookCreate'
-import { Categories } from './components/Categories'
-import { Home } from './screens/Home'
-import { Logout } from './components/Logout'
+import { AuthContextProvider } from './contexts/authContext'
 import { MyThemeProvider } from './contexts/themeToggleContext'
+import PrivateRoute from './router/PrivateRoute'
+import PublicRoute from './router/PublicRoute'
+import { BookCreate } from './screens/BookCreate'
+import { BookDelete } from './screens/BookDelete'
+import { BookDetail } from './screens/BookDetail'
+import { Books } from './screens/Books'
+import { Home } from './screens/Home'
+
 import { GlobalStyles } from './styles/global'
 
 function App() {
