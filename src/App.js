@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Switch } from 'react-router-dom'
+import { HashRouter, Switch } from 'react-router-dom'
 import { Categories } from './components/Categories'
 import { Logout } from './components/Logout'
 import {
@@ -29,7 +29,7 @@ function App() {
     <MyThemeProvider>
       <GlobalStyles />
       <AuthContextProvider>
-        <Router>
+        <HashRouter basename={process.env.PUBLIC_URL}>
           <Switch>
             <PublicRoute path={HOME} component={Home} exact />
             <PrivateRoute path={LOGOUT} component={Logout} exact />
@@ -40,7 +40,7 @@ function App() {
             <PrivateRoute path={BOOK_DELETE} component={BookDelete} exact />
             <PrivateRoute path={BOOK_EDIT} component={BookCreate} exact />
           </Switch>
-        </Router>
+        </HashRouter>
       </AuthContextProvider>
     </MyThemeProvider>
   )
